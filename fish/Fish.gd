@@ -25,7 +25,11 @@ var target_rotation: Basis
 func compute_acceleration(desired_velocity: Vector3, delta: float, zero_threshold: float = 0.0) -> Vector3:
 	var accel_direction = (desired_velocity - velocity).normalized()
 	
-	var delta_accel_strength = acceleration_strength * delta
+	var ast = acceleration_strength
+	if velocity.length() > movement_speed:
+		ast *= 4
+	
+	var delta_accel_strength = ast * delta
 	
 	# By default the zero-threshold is set to 0, so we will only decelerate if
 	# the input velocity is exactly 0. This is fine for the player script, which
@@ -127,6 +131,8 @@ func process_pivot_rotation(delta):
 
 var jitter_z = 0.0
 
+var DashParticles = preload("res://fish/DashParticles.tscn")
+
 func _physics_process(delta):
 	var new_target = find_target_position()
 	if new_target != null:
@@ -139,6 +145,14 @@ func _physics_process(delta):
 
 	process_movement(delta)
 	
+	if Input.is_action_just_pressed("fish_dash"):
+		var mouse = fish_pattern.target_position
+		if mouse != null:
+			var dir = (mouse - transform.origin).normalized()
+			velocity += (dir * movement_speed * 3)
+			velocity = velocity.normalized() * movement_speed * 1.4
+			var dp = DashParticles.instance()
+			add_child(dp)
 	
 	var jitter_z_uf = rand_range(-2.0, 2.0)
 	jitter_z += (jitter_z_uf - jitter_z) * GS.lpfa(0.01) * delta

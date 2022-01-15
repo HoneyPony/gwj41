@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fish/3d/GoldfishEye.material" type="Material" id=1]
 [ext_resource path="res://fish/Fish.gd" type="Script" id=2]
 [ext_resource path="res://fish/3d/FishMat.material" type="Material" id=3]
 [ext_resource path="res://fish/3d/OnlyShadow.material" type="Material" id=4]
+[ext_resource path="res://fish/DashParticles.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "fish_fancier2_Cube001"
@@ -110,3 +111,5 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 4 )
+
+[node name="DashParticles" parent="." instance=ExtResource( 5 )]
