@@ -64,8 +64,24 @@ fish_number = 5
 fish_pattern = NodePath("../FishPattern")
 fish_number = 6
 
+[node name="Fish7" parent="." instance=ExtResource( 1 )]
+fish_pattern = NodePath("../FishPattern")
+fish_number = 7
+
+[node name="Fish8" parent="." instance=ExtResource( 1 )]
+fish_pattern = NodePath("../FishPattern")
+fish_number = 8
+
+[node name="Fish9" parent="." instance=ExtResource( 1 )]
+fish_pattern = NodePath("../FishPattern")
+fish_number = 9
+
+[node name="Fish10" parent="." instance=ExtResource( 1 )]
+fish_pattern = NodePath("../FishPattern")
+fish_number = 10
+
 [node name="FishPattern" type="Spatial" parent="."]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00122285, 0, 0 )
 script = ExtResource( 3 )
 
 [node name="Fish0" type="Position3D" parent="FishPattern"]
@@ -88,17 +104,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04424, 1.85627 )
 [node name="Fish6" type="Position3D" parent="FishPattern"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12652, 1.52205 )
 
+[node name="Fish7" type="Position3D" parent="FishPattern"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29146e-08, 0.694323, 3.41891 )
+
+[node name="Fish8" type="Position3D" parent="FishPattern"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1755e-07, -0.200085, 4.21128 )
+
+[node name="Fish9" type="Position3D" parent="FishPattern"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5588e-07, 0.452257, 5.08817 )
+
+[node name="Fish10" type="Position3D" parent="FishPattern"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30614e-08, -0.838075, 3.1935 )
+
 [node name="sand" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.281, -0.105626 )
 
 [node name="StaticBody2" type="StaticBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216877, -2.26259, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216877, -2.14222, 0 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="StaticBody2"]
-transform = Transform( 0.0158643, 0.999874, 0, -0.999874, 0.0158643, 0, 0, 0, 1, -8.8756, -1.64042, 0 )
+transform = Transform( 0.0158643, 0.999874, 0, -0.999874, 0.0158643, 0, 0, 0, 1, -8.5908, -1.64042, 0 )
 shape = SubResource( 5 )
 
 [node name="Spatial2" parent="." instance=ExtResource( 6 )]

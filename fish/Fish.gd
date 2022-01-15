@@ -56,7 +56,7 @@ func process_movement(delta):
 	
 	var distance_there = input_vector.length()
 	input_vector = input_vector.normalized()
-	var desired_velocity: Vector3 = input_vector * min(movement_speed, (distance_there * distance_there) / delta)
+	var desired_velocity: Vector3 = input_vector * min(movement_speed, sqrt(2 * acceleration_strength * distance_there))
 	
 	
 	
@@ -125,6 +125,7 @@ func process_pivot_rotation(delta):
 			
 	pivot.transform.basis = pivot.transform.basis.orthonormalized().slerp(target_rotation, GS.lpfa(0.1) * delta)
 
+var jitter_z = 0.0
 
 func _physics_process(delta):
 	var new_target = find_target_position()
@@ -138,5 +139,9 @@ func _physics_process(delta):
 
 	process_movement(delta)
 	
-	var target_z = clamp(velocity.x / 10.0, -1.0, 1.0)
+	
+	var jitter_z_uf = rand_range(-2.0, 2.0)
+	jitter_z += (jitter_z_uf - jitter_z) * GS.lpfa(0.01) * delta
+	
+	var target_z = clamp(velocity.x / 10.0, -2.0, 2.0) + jitter_z
 	pivot.transform.origin.z += (target_z - pivot.transform.origin.z) * GS.lpfa(0.05) * delta
