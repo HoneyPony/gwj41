@@ -102,15 +102,16 @@ transform = Transform( 0.0158643, 0.999874, 0, -0.999874, 0.0158643, 0, 0, 0, 1,
 shape = SubResource( 5 )
 
 [node name="Spatial2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.24379, -0.443701 )
+transform = Transform( 0.531066, 0, 0, 0, 0.531066, 0, 0, 0, 0.531066, -0.04829, -1.25663, -0.34867 )
 
 [node name="Spatial3" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.768353, 0, 0.51849, 0, 0.722288, 0, 0.465899, 0, 0.855084, 0.379801, -1.29853, -0.179692 )
+transform = Transform( -0.408046, 0, 0.275352, 0, 0.383582, 0, 0.247423, 0, 0.454106, 0.153409, -1.2857, -0.208464 )
 
 [node name="Spatial4" parent="." instance=ExtResource( 6 )]
-transform = Transform( -0.807492, 0, -0.438685, 0, 0.875037, 0, -0.394189, 0, 0.898641, -0.585757, -1.29853, -0.0383961 )
+transform = Transform( -0.428831, 0, -0.23297, 0, 0.464702, 0, -0.20934, 0, 0.477237, -0.359366, -1.2857, -0.133427 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.771036, -0.272761, 0.575417, 0, 0.90362, 0.428336, -0.636792, -0.330262, 0.696723, 0, 2.08672, 0 )
-light_color = Color( 1, 0.94902, 0.878431, 1 )
-light_energy = 0.3
+transform = Transform( 0.823915, -0.384453, 0.416365, -0.109977, 0.612266, 0.782966, -0.55594, -0.690888, 0.462174, 0, 2.08672, 0 )
+light_color = Color( 0.52549, 0.52549, 0.52549, 1 )
+light_energy = 0.7
+shadow_enabled = true
