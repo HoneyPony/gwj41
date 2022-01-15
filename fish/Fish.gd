@@ -8,46 +8,14 @@ export var movement_speed = 20
 
 onready var pivot = $FishRot
 
-enum FishMode {
-	FOLLOW_MOUSE,
-	FOLLOW_FISH
-}
+export(NodePath) onready var fish_pattern = GS.nodefp(self, fish_pattern)
 
-export(FishMode) var fish_mode = FishMode.FOLLOW_FISH
+export var fish_number: int = 0
 
-export(NodePath) onready var fish_target = GS.nodefp(self, fish_target)
+onready var fish_target = GS.nodefp(fish_pattern, "Fish" + String(fish_number))
 
-func find_mouse_target_position():
-	var camera = GS.camera
-	var mouse = get_viewport().get_mouse_position()
-	var from = camera.project_ray_origin(mouse)
-	var to = from + camera.project_ray_normal(mouse) * 100
-	
-	var space_state = get_world().direct_space_state
-	var result: Dictionary = space_state.intersect_ray(from, to,
-		[self], 0x80000000)
-		
-	if not result.empty():
-		return result.position
-
-	return null
-	
-var offset_dir = Vector3.LEFT
-	
-func find_fish_target_position():
-	var vel = fish_target.velocity
-
-	if vel.length() > 5:
-		offset_dir = vel.normalized()
-
-	return fish_target.transform.origin - offset_dir * 1.2
-
-	#return null
-	
 func find_target_position():
-	if fish_mode == FishMode.FOLLOW_MOUSE:
-		return find_mouse_target_position()
-	return find_fish_target_position()
+	return fish_target.global_transform.origin
 	
 var target_rotation: Basis
 
@@ -114,37 +82,6 @@ func process_movement(delta):
 		velocity += acceleration
 	
 	velocity = move_and_slide(velocity)
-#
-#func process_movement_fish(delta):
-#	var k = 50
-#	var b = 47
-#
-#	var dir = transform.origin - target_position
-#	var dist = dir.length()
-#
-#	if dist < 0.01:
-#		return
-#	dir = dir.normalized()
-#	var accel = -k * (dist - 0.2) * dir
-#
-#	velocity += accel * delta
-#	accel = Vector3.ZERO
-#
-#	var vel_component = velocity.project(dir)
-#	#accel += vel_component * -b
-#
-#	#velocity += accel * delta
-#
-#	velocity = move_and_slide(velocity)
-
-func process_movement_fish(delta):
-	var target_velocity = (target_position - transform.origin) * GS.lpfa(0.1)
-	
-	var accel = compute_acceleration(target_velocity, delta)
-	
-	velocity += accel
-	
-	velocity = move_and_slide(velocity)
 	
 func process_pivot_rotation(delta):
 	if target_position != null:
@@ -168,7 +105,4 @@ func _physics_process(delta):
 	
 	process_pivot_rotation(delta)
 
-	if fish_mode == FishMode.FOLLOW_MOUSE:
-		process_movement(delta)
-	else:
-		process_movement_fish(delta)
+	process_movement(delta)

@@ -20,6 +20,7 @@ GS="*res://GS.gd"
 
 [layer_names]
 
+3d_physics/layer_1="Fish_Exist"
 3d_physics/layer_32="Mouse Intersect"
 
 [physics]
@@ -31,4 +32,4 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://Env.tres"
