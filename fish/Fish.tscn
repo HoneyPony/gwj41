@@ -6,15 +6,15 @@
 [sub_resource type="SphereShape" id=1]
 radius = 0.28
 
-[node name="Spatial" type="KinematicBody"]
+[node name="Spatial" type="KinematicBody" groups=["PlayerFish"]]
 collision_mask = 0
 script = ExtResource( 2 )
-acceleration_strength = 50
+acceleration_strength = 40
 
 [node name="FishRot" type="Spatial" parent="."]
 
 [node name="fish_more" parent="FishRot" instance=ExtResource( 1 )]
-transform = Transform( -6.11959e-08, 0, 1.4, 0, 1.4, 0, -1.4, 0, -6.11959e-08, 0, 0, 0 )
+transform = Transform( -6.11959e-08, 0, 1.4, 0, 1.4, 0, -1.4, 0, -6.11959e-08, 0, 0, 0.476252 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
