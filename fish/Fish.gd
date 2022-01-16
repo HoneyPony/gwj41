@@ -24,9 +24,12 @@ export var fish_number: int = 0
 onready var fish_target = GS.nodefp(fish_pattern, "Fish" + String(fish_number))
 
 var dash_timer = 0.0
+var my_custom_anim_speed
 
 func _ready():
 	fish_mesh.get_active_material(0).albedo_color = fish_color
+	fish_anim.advance(rand_range(0.0, 1.5))
+	my_custom_anim_speed = rand_range(0.99, 1.06)
 	
 	dash_shape.disabled = true
 	
@@ -168,7 +171,7 @@ var DashParticles = preload("res://fish/DashParticles.tscn")
 
 func process_anim(delta):
 	var val = (velocity.length() / (movement_speed * 1.2))
-	fish_anim.animation_speed = clamp(val, 1.5, max_anim_speed)
+	fish_anim.animation_speed = clamp(val, 1.5, max_anim_speed) * my_custom_anim_speed
 
 func _physics_process(delta):
 	var should_go_towards_target = true
