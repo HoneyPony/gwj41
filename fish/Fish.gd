@@ -8,6 +8,11 @@ export var fish_color: Color = Color(0xff8600ff)
 export var acceleration_strength = 10
 export var movement_speed = 20
 
+export(NodePath) onready var fish_mesh = GS.nodefp(self, fish_mesh)
+export(NodePath) onready var fish_anim = GS.nodefp(self, fish_anim)
+
+export var max_anim_speed = 4
+
 onready var pivot = $FishRot
 
 onready var dash_shape = $DashCollider/CollisionShape
@@ -21,7 +26,7 @@ onready var fish_target = GS.nodefp(fish_pattern, "Fish" + String(fish_number))
 var dash_timer = 0.0
 
 func _ready():
-	$FishRot/fish_fancier2/Cube.get_active_material(0).albedo_color = fish_color
+	fish_mesh.get_active_material(0).albedo_color = fish_color
 	
 	dash_shape.disabled = true
 	
@@ -147,6 +152,10 @@ func process_pivot_rotation(delta):
 var jitter_z = 0.0
 
 var DashParticles = preload("res://fish/DashParticles.tscn")
+
+func process_anim(delta):
+	var val = (velocity.length() / (movement_speed * 1.2))
+	fish_anim.animation_speed = clamp(val, 1.5, max_anim_speed)
 
 func _physics_process(delta):
 	var new_target = find_target_position()
