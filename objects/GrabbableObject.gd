@@ -11,6 +11,9 @@ const gravity = Vector3(0, -30, 0)
 
 var filtered_target = Vector3.ZERO
 
+export var damp_accel = 15.0
+export var damp_max_mul = 6.0
+
 func check_dash_area(delta):
 	if ignore_dash_area_timer > 0.0:
 		ignore_dash_area_timer -= delta
@@ -71,8 +74,8 @@ func _physics_process(delta):
 		var vel_xz = velocity
 		vel_xz.y = 0
 		var decel_strength = vel_xz.length() / 10
-		decel_strength = clamp(decel_strength, 0.7, 6.0)
-		var decel = -vel_xz.normalized() * 15 * delta * decel_strength
+		decel_strength = clamp(decel_strength, 0.7, damp_max_mul)
+		var decel = -vel_xz.normalized() * damp_accel * delta * decel_strength
 		
 		if decel.length() > vel_xz.length():
 			vel_xz = Vector3.ZERO

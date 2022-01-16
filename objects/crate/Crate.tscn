@@ -11,7 +11,7 @@ extents = Vector3( 0.321886, 0.313555, 0.324886 )
 
 [node name="Crate" type="KinematicBody"]
 collision_layer = 8
-collision_mask = 2
+collision_mask = 16
 script = ExtResource( 2 )
 
 [node name="crate" parent="." instance=ExtResource( 1 )]

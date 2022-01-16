@@ -1,0 +1,13 @@
+Idea: Geode breaking
+
+You have to throw rocks in the air so that they intersect with a laser properly.
+
+Idea: Item juggling
+
+There is some sort of wall that you can only dash through;
+You have to dash through and then immediately dash to the right in order to bring an
+item with you through a couple walls.
+
+Idea: Basketball
+
+You have to throw a basketball through a wall and land it on a somewhat specific spot.
