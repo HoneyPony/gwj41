@@ -171,6 +171,7 @@ func _physics_process(delta):
 	dash_shape.disabled = dash_timer <= 0.2
 	dash_timer = max(dash_timer - delta, -1)
 	
+	set_collision_mask_bit(5, dash_timer <= -0.2)
 	
 	var jitter_z_uf = rand_range(-2.0, 2.0)
 	jitter_z += (jitter_z_uf - jitter_z) * GS.lpfa(0.01) * delta

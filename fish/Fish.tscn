@@ -119,7 +119,7 @@ shape = SubResource( 4 )
 
 [node name="DashCollider" type="KinematicBody" parent="."]
 collision_layer = 4
-collision_mask = 4
+collision_mask = 36
 
 [node name="CollisionShape" type="CollisionShape" parent="DashCollider"]
 shape = SubResource( 6 )

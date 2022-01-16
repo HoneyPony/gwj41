@@ -6,7 +6,7 @@ extents = Vector3( 0.8, 3.8, 14 )
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 1.6, 7.6, 1.6 )
 
-[node name="Spatial" type="Spatial"]
+[node name="ItemWall" type="Spatial"]
 
 [node name="Collision" type="StaticBody" parent="."]
 collision_layer = 2
