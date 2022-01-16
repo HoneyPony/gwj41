@@ -64,18 +64,22 @@ shape = SubResource( 4 )
 fish_pattern = NodePath("../FishPattern")
 
 [node name="Fish1" parent="." instance=ExtResource( 1 )]
+fish_color = Color( 1, 0.305882, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 1
 
 [node name="Fish2" parent="." instance=ExtResource( 1 )]
+fish_color = Color( 1, 0.937255, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 2
 
 [node name="Fish3" parent="." instance=ExtResource( 1 )]
+fish_color = Color( 1, 0.352941, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 3
 
 [node name="Fish4" parent="." instance=ExtResource( 1 )]
+fish_color = Color( 1, 0.74902, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 4
 

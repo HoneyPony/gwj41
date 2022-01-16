@@ -3,6 +3,8 @@ extends KinematicBody
 var target_position = null
 var velocity: Vector3
 
+export var fish_color: Color = Color(0xff8600ff)
+
 export var acceleration_strength = 10
 export var movement_speed = 20
 
@@ -19,6 +21,8 @@ onready var fish_target = GS.nodefp(fish_pattern, "Fish" + String(fish_number))
 var dash_timer = 0.0
 
 func _ready():
+	$FishRot/fish_fancier2/Cube.get_active_material(0).albedo_color = fish_color
+	
 	dash_shape.disabled = true
 	
 	GS.fish_set.append(self)

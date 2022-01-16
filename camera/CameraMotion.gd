@@ -7,6 +7,8 @@ var fish_arr = []
 onready var fish_pattern = get_node("../FishPattern")
 
 func _ready():
+	
+	
 	var fish_root = get_parent()
 	for i in range(0, 10 + 1):
 		var fish = fish_root.get_node("Fish" + String(i))

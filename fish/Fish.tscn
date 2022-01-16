@@ -7,6 +7,7 @@
 [ext_resource path="res://fish/DashParticles.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ArrayMesh" id=1]
+resource_local_to_scene = true
 resource_name = "fish_fancier2_Cube001"
 surfaces/0 = {
 "aabb": AABB( -0.411238, -0.354506, -0.171887, 0.819163, 0.72046, 0.343774 ),
@@ -88,7 +89,7 @@ transform = Transform( 0.14275, 0, 0.010665, 0.010665, -3.41292e-08, -0.14275, 1
 [node name="Cube" type="MeshInstance" parent="FishRot/fish_fancier2"]
 transform = Transform( 0.997221, -0.0745031, 0, 0.0745031, 0.997221, 0, 0, 0, 1, -0.000780397, 0.000294846, 0 )
 mesh = SubResource( 1 )
-material/0 = null
+material/0 = ExtResource( 3 )
 
 [node name="Sphere" type="MeshInstance" parent="FishRot/fish_fancier2"]
 transform = Transform( 0.0308207, 0.00675876, -0.0134275, -0.0134463, -0.00130008, -0.0315183, -0.00672127, 0.0335935, 0.00148174, 0.318888, 0.0586105, 0.0298429 )
