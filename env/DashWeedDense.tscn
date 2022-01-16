@@ -41,7 +41,7 @@ surfaces/0 = {
 }
 
 [sub_resource type="Curve" id=5]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.90215, 0.0, 0, 0 ]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.465553, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -1.90215, 0.0, 0, 0 ]
 
 [sub_resource type="Gradient" id=6]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 2, 1, 1 )
