@@ -2,6 +2,10 @@ Idea: Geode breaking
 
 You have to throw rocks in the air so that they intersect with a laser properly.
 
+Idea: Gem sorting?
+
+You have to get the right gems.
+
 Idea: Item juggling
 
 There is some sort of wall that you can only dash through;
@@ -11,3 +15,19 @@ item with you through a couple walls.
 Idea: Basketball
 
 You have to throw a basketball through a wall and land it on a somewhat specific spot.
+
+Idea: Fish Split
+
+You have to have some of the fish go in two different directions.
+
+Idea: Crate delivery
+
+You have to deliver the crate to somebody.
+
+Idea: Race
+
+You have to move around a race track within a certain period of time.
+
+Idea: Through the weeds
+
+You have to go through a bunch of Dash Weeds.

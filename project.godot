@@ -58,6 +58,7 @@ fish_dash={
 3d_physics/layer_4="Item_Exist"
 3d_physics/layer_5="Item_Obstacle_Exist"
 3d_physics/layer_6="OnlyDash_Obstacle_Exist"
+3d_physics/layer_7="Geyser_Exist"
 3d_physics/layer_32="Mouse Intersect"
 
 [physics]

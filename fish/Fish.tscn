@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://fish/3d/GoldfishEye.material" type="Material" id=1]
 [ext_resource path="res://fish/Fish.gd" type="Script" id=2]
@@ -180,6 +180,9 @@ radius = 0.379862
 [sub_resource type="SphereShape" id=6]
 radius = 0.691054
 
+[sub_resource type="SphereShape" id=10]
+radius = 0.812643
+
 [node name="Spatial" type="KinematicBody" groups=["PlayerFish"]]
 collision_mask = 2
 script = ExtResource( 2 )
@@ -298,3 +301,10 @@ collision_mask = 36
 
 [node name="CollisionShape" type="CollisionShape" parent="DashCollider"]
 shape = SubResource( 6 )
+
+[node name="GeyserDetect" type="Area" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape" type="CollisionShape" parent="GeyserDetect"]
+shape = SubResource( 10 )

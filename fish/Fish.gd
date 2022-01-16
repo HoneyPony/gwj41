@@ -43,14 +43,18 @@ var target_rotation: Basis
 # This function computes the current acceleration based on the desired velocity.
 # In particular, it will never accelerate faster than the desired velocity, so the
 # acceleration * delta vector is properly clamped so as to not over-accelerate.
-func compute_acceleration(desired_velocity: Vector3, delta: float, zero_threshold: float = 0.0) -> Vector3:
+func compute_acceleration(desired_velocity: Vector3, delta: float, ast_override: float = -1, zero_threshold: float = 0.0) -> Vector3:
 	var accel_direction = (desired_velocity - velocity).normalized()
 	
 	var ast = acceleration_strength
 	if velocity.length() > movement_speed:
 		ast *= 4
 	
-	var delta_accel_strength = ast * delta
+	var delta_accel_strength
+	if ast_override == -1:
+		 delta_accel_strength = ast * delta
+	else:
+		delta_accel_strength = ast_override * delta
 	
 	# By default the zero-threshold is set to 0, so we will only decelerate if
 	# the input velocity is exactly 0. This is fine for the player script, which
@@ -139,7 +143,13 @@ func process_pivot_rotation(delta):
 			
 			var basis_tmp = pivot.transform.basis
 			
-			pivot.look_at(pivot.global_transform.origin + velocity.normalized() * 10, Vector3.UP)
+			var vel_dir = velocity.normalized()
+			if vel_dir.distance_squared_to(Vector3.UP) < 0.001:
+				vel_dir = Vector3(0.2, 1, 0).normalized()
+			if vel_dir.distance_squared_to(-Vector3.UP) < 0.001:
+				vel_dir = Vector3(0.2, -1, 0).normalized()
+			
+			pivot.look_at(pivot.global_transform.origin + vel_dir.normalized() * 10, Vector3.UP)
 			target_rotation = pivot.transform.basis.orthonormalized()
 			
 			pivot.transform.basis = basis_tmp
@@ -173,6 +183,23 @@ func process_anim(delta):
 	var val = (velocity.length() / (movement_speed * 1.2))
 	fish_anim.animation_speed = clamp(val, 1.5, max_anim_speed) * my_custom_anim_speed
 
+func process_geysers(delta):
+	if dash_timer > 0.05:
+		return
+	
+	var geysers = $GeyserDetect.get_overlapping_bodies()
+	for geyser in geysers:
+		var dir = geyser.transform.basis.y
+		
+		dir.z = 0.0
+		
+		var desired_vel = dir * movement_speed * 1.8
+		
+		var accel = compute_acceleration(desired_vel, delta, acceleration_strength * 1.5)
+		
+		velocity += accel
+		
+
 func _physics_process(delta):
 	var should_go_towards_target = true
 	
@@ -198,6 +225,8 @@ func _physics_process(delta):
 
 	process_movement(delta, should_go_towards_target)
 	
+	process_geysers(delta)
+	
 	if Input.is_action_just_pressed("fish_dash"):
 		if dash_timer <= 0.0:
 		
@@ -211,6 +240,7 @@ func _physics_process(delta):
 				
 				var dir = (target - transform.origin).normalized()
 				
+				dir.z = 0.0
 				
 				velocity += (dir * movement_speed * 3)
 				velocity = velocity.normalized() * movement_speed * 1.4

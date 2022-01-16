@@ -14,6 +14,21 @@ func find_mouse_target_position():
 		return result.position
 
 	return null
+	
+#func find_mouse_geyser():
+#	var camera = GS.camera
+#	var mouse = get_viewport().get_mouse_position()
+#	var from = camera.project_ray_origin(mouse)
+#	var to = from + camera.project_ray_normal(mouse) * 300
+#
+#	var space_state = get_world().direct_space_state
+#	var result: Dictionary = space_state.intersect_ray(from, to,
+#		[self], 64)
+#
+#	if not result.empty():
+#		return result.collider
+#
+#	return null
 
 var target_position = null
 var target_rotation = Basis.IDENTITY
@@ -24,7 +39,14 @@ func _physics_process(delta):
 	var last_target = target_position
 	target_position = find_mouse_target_position()
 	
+
+	
 	if target_position != null:
+#		var geyser_col = find_mouse_geyser()
+#		if geyser_col != null:
+#			var g = geyser_col.get_parent()
+#			target_position.y = g.transform.origin.y + 10
+		
 		var dir = (target_position - transform.origin)
 		if dir.length() > 0.02:
 
