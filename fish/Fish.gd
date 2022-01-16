@@ -20,6 +20,8 @@ var dash_timer = 0.0
 
 func _ready():
 	dash_shape.disabled = true
+	
+	GS.fish_set.append(self)
 
 func find_target_position():
 	return fish_target.global_transform.origin

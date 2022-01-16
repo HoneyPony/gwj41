@@ -1,6 +1,7 @@
 extends Node
 
 var camera
+var fish_set = []
 
 func lpfa(a):
 	return a * 60.0
