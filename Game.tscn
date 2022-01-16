@@ -112,36 +112,37 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0012
 script = ExtResource( 3 )
 
 [node name="Fish0" type="Position3D" parent="FishPattern"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79448e-08, 0, -2.24071 )
 
 [node name="Fish1" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0201914, 1.28462 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79448e-08, 0.0201914, -0.956095 )
 
 [node name="Fish2" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.40481 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79448e-08, 0, 0.164095 )
 
 [node name="Fish3" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.582473, 0.463483 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79448e-08, 0.582473, -1.77723 )
 
 [node name="Fish4" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.711023, 0.812258 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79448e-08, -0.711023, -1.42846 )
 
 [node name="Fish5" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.04424, 1.85627 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79448e-08, -1.04424, -0.384445 )
 
 [node name="Fish6" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12652, 1.52205 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.79448e-08, 1.12652, -0.718665 )
 
 [node name="Fish7" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.29146e-08, 0.694323, 3.41891 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.50302e-08, 0.694323, 1.1782 )
 
 [node name="Fish8" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1755e-07, -0.200085, 4.21128 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96051e-08, -0.200085, 1.97056 )
 
 [node name="Fish9" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5588e-07, 0.452257, 5.08817 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.79351e-08, 0.452257, 2.84745 )
 
 [node name="Fish10" type="Position3D" parent="FishPattern"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30614e-08, -0.838075, 3.1935 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48834e-08, -0.838075, 0.952785 )
 
 [node name="sand" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.281, -0.105626 )

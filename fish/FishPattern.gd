@@ -18,7 +18,10 @@ func find_mouse_target_position():
 var target_position = null
 var target_rotation = Basis.IDENTITY
 
+var is_mostly_still = false
+
 func _physics_process(delta):
+	var last_target = target_position
 	target_position = find_mouse_target_position()
 	
 	if target_position != null:
@@ -37,3 +40,7 @@ func _physics_process(delta):
 	#transform.basis = transform.basis.orthonormalized().slerp(target_rotation, GS.lpfa(0.1) * delta)
 
 		transform.origin = target_position
+		
+		if last_target != null:
+			var dist = (target_position - last_target).length()
+			is_mostly_still = dist < 0.3

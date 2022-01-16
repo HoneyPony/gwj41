@@ -69,7 +69,7 @@ func get_input_vector():
 	
 
 
-func process_movement(delta):
+func process_movement(delta, should_go_towards_target):
 	var distance = (target_position - transform.origin).length()
 #	if distance < velocity.length() and distance < 0.05:
 #		distance = 0
@@ -90,6 +90,10 @@ func process_movement(delta):
 	var position_boundary_for_deceleration = velocity.length_squared() / (2.0 * acceleration_strength)
 	
 	var should_be_decelerating = distance <= position_boundary_for_deceleration
+	
+	if not should_go_towards_target:
+		should_be_decelerating = false
+		desired_velocity = Vector3.ZERO
 	
 	if should_be_decelerating:
 		var accel_strength = acceleration_strength
@@ -128,26 +132,35 @@ func process_movement(delta):
 func process_pivot_rotation(delta):
 	if target_position != null:
 		var dir = (target_position - transform.origin)
-		if velocity.length() > 5:
+		if velocity.length() > 1:
 			
 			var basis_tmp = pivot.transform.basis
 			
-			pivot.look_at(pivot.transform.origin + velocity.normalized() * 10, Vector3.UP)
+			pivot.look_at(pivot.global_transform.origin + velocity.normalized() * 10, Vector3.UP)
 			target_rotation = pivot.transform.basis.orthonormalized()
 			
 			pivot.transform.basis = basis_tmp
 		else:
-			var look_target = fish_pattern.target_position
-			if look_target != null:
-				if (look_target - transform.origin).length_squared() > 0.5:
-					var basis_tmp = pivot.transform.basis
-					
-					pivot.look_at(look_target, Vector3.UP)
-					target_rotation = pivot.transform.basis.orthonormalized()
-					
-					pivot.transform.basis = basis_tmp
+			var mouse = fish_pattern.target_position
+			var fish = GS.fish_avg
 			
-	pivot.transform.basis = pivot.transform.basis.orthonormalized().slerp(target_rotation, GS.lpfa(0.1) * delta)
+			if mouse != null:
+				if mouse.x >= fish.x:
+					target_rotation = Basis(Vector3.UP, deg2rad(-90))
+				else:	
+					target_rotation = Basis(Vector3.UP, deg2rad(90))
+			
+#			var look_target = fish_pattern.target_position
+#			if look_target != null:
+#				if (look_target - transform.origin).length_squared() > 0.5:
+#					var basis_tmp = pivot.transform.basis
+#
+#					pivot.look_at(look_target, Vector3.UP)
+#					target_rotation = pivot.transform.basis.orthonormalized()
+#
+#					pivot.transform.basis = basis_tmp
+#
+	pivot.transform.basis = pivot.transform.basis.orthonormalized().slerp(target_rotation, GS.lpfa(0.07) * delta)
 
 var jitter_z = 0.0
 
@@ -158,16 +171,29 @@ func process_anim(delta):
 	fish_anim.animation_speed = clamp(val, 1.5, max_anim_speed)
 
 func _physics_process(delta):
+	var should_go_towards_target = true
+	
 	var new_target = find_target_position()
 	if new_target != null:
 		if target_position == null:
 			target_position = new_target
-		target_position += (new_target - target_position) * GS.lpfa(0.05) * delta
+		target_position = new_target
+	
+		if fish_pattern.is_mostly_still:
+			var mouse = fish_pattern.target_position
+			if mouse != null:
+				if (mouse - transform.origin).length() < 2:
+					should_go_towards_target = false
+			if (target_position - transform.origin).length() < 0.8:
+				should_go_towards_target = false
+	
+	
+		#target_position += (new_target - target_position) * GS.lpfa(0.05) * delta
 		
 		#print(target_position)
 	process_pivot_rotation(delta)
 
-	process_movement(delta)
+	process_movement(delta, should_go_towards_target)
 	
 	if Input.is_action_just_pressed("fish_dash"):
 		if dash_timer <= 0.0:
