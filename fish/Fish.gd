@@ -8,11 +8,18 @@ export var movement_speed = 20
 
 onready var pivot = $FishRot
 
+onready var dash_shape = $DashCollider/CollisionShape
+
 export(NodePath) onready var fish_pattern = GS.nodefp(self, fish_pattern)
 
 export var fish_number: int = 0
 
 onready var fish_target = GS.nodefp(fish_pattern, "Fish" + String(fish_number))
+
+var dash_timer = 0.0
+
+func _ready():
+	dash_shape.disabled = true
 
 func find_target_position():
 	return fish_target.global_transform.origin
@@ -48,6 +55,8 @@ func compute_acceleration(desired_velocity: Vector3, delta: float, zero_threshol
 	
 func get_input_vector():
 	pass
+	
+
 
 func process_movement(delta):
 	var distance = (target_position - transform.origin).length()
@@ -146,13 +155,20 @@ func _physics_process(delta):
 	process_movement(delta)
 	
 	if Input.is_action_just_pressed("fish_dash"):
-		var mouse = fish_pattern.target_position
-		if mouse != null:
-			var dir = (mouse - transform.origin).normalized()
-			velocity += (dir * movement_speed * 3)
-			velocity = velocity.normalized() * movement_speed * 1.4
-			var dp = DashParticles.instance()
-			add_child(dp)
+		if dash_timer <= 0.0:
+		
+			var mouse = fish_pattern.target_position
+			if mouse != null:
+				var dir = (mouse - transform.origin).normalized()
+				velocity += (dir * movement_speed * 3)
+				velocity = velocity.normalized() * movement_speed * 1.4
+				var dp = DashParticles.instance()
+				add_child(dp)
+				
+				dash_timer = 0.4
+	dash_shape.disabled = dash_timer <= 0.2
+	dash_timer = max(dash_timer - delta, -1)
+	
 	
 	var jitter_z_uf = rand_range(-2.0, 2.0)
 	jitter_z += (jitter_z_uf - jitter_z) * GS.lpfa(0.01) * delta

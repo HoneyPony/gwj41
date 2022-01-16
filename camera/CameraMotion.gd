@@ -2,30 +2,58 @@ extends Spatial
 
 var actual_velocity = Vector3.ZERO
 
+var fish_arr = []
+
+onready var fish_pattern = get_node("../FishPattern")
+
+func _ready():
+	var fish_root = get_parent()
+	for i in range(0, 10 + 1):
+		var fish = fish_root.get_node("Fish" + String(i))
+		fish_arr.append(fish)
+
 func _physics_process(delta):
-	var mouse = get_viewport().get_mouse_position()
-	
-	mouse.x /= get_viewport().size.x
-	mouse.y /= get_viewport().size.y
-	
-	#print(mouse)
-	
-	mouse.x -= 0.5
-	mouse.y -= 0.5
-	
-	var velocity = Vector3.ZERO
-	
-	if mouse.x > 0.45:
-		velocity += Vector3.RIGHT
-	if mouse.x < -0.45:
-		velocity -= Vector3.RIGHT
-	if mouse.y > 0.45:
-		velocity -= Vector3.UP
-	if mouse.y < -0.45:
-		velocity += Vector3.UP
+	var fish_avg = Vector3.ZERO
+	for fish in fish_arr:
+		fish_avg += fish.transform.origin
 		
-	velocity = velocity.normalized() * 10
-	actual_velocity += (velocity - actual_velocity) * GS.lpfa(0.2) * delta
+	var fish_n = fish_arr.size()
+	#if fish_pattern.target_position != null:
+		#fish_avg += fish_pattern.target_position * 8
+		#fish_n += 8
 		
-	transform.origin += actual_velocity * delta
+	fish_avg /= fish_n
+	
+	var offset = fish_avg - $FishTarget.global_transform.origin
+	
+	var lerp_strength = (offset.length() - 2.0) / 4.0
+	lerp_strength = clamp(lerp_strength, 0, 0.7)
+	
+	transform.origin += offset * GS.lpfa(lerp_strength) * delta
+	
+#	var mouse = get_viewport().get_mouse_position()
+#
+#	mouse.x /= get_viewport().size.x
+#	mouse.y /= get_viewport().size.y
+#
+#	#print(mouse)
+#
+#	mouse.x -= 0.5
+#	mouse.y -= 0.5
+#
+#	var velocity = Vector3.ZERO
+#
+#	if mouse.x > 0.45:
+#		velocity += Vector3.RIGHT
+#	if mouse.x < -0.45:
+#		velocity -= Vector3.RIGHT
+#	if mouse.y > 0.45:
+#		velocity -= Vector3.UP
+#	if mouse.y < -0.45:
+#		velocity += Vector3.UP
+#
+#	velocity = velocity.normalized() * 10
+#	actual_velocity += (velocity - actual_velocity) * GS.lpfa(0.2) * delta
+#
+#	transform.origin += actual_velocity * delta
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fish/Fish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://camera/OceanCamera.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://env/sand/sand.glb" type="PackedScene" id=5]
 [ext_resource path="res://env/Seaweed.tscn" type="PackedScene" id=6]
 [ext_resource path="res://camera/CameraMotion.gd" type="Script" id=7]
+[ext_resource path="res://env/DashWeedDense.tscn" type="PackedScene" id=8]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 84.5582, 74.9645, 0.254787 )
@@ -26,6 +27,8 @@ current = true
 fov = 17.5
 size = 7.0
 script = ExtResource( 2 )
+
+[node name="FishTarget" type="Spatial" parent="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
@@ -120,6 +123,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.30614e-08, -0.838075, 3.193
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.281, -0.105626 )
 
 [node name="StaticBody2" type="StaticBody" parent="."]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.216877, -2.14222, 0 )
@@ -131,15 +136,21 @@ shape = SubResource( 5 )
 
 [node name="Spatial2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.531066, 0, 0, 0, 0.531066, 0, 0, 0, 0.531066, -0.04829, -1.25663, -0.34867 )
+visible = false
 
 [node name="Spatial3" parent="." instance=ExtResource( 6 )]
 transform = Transform( -0.408046, 0, 0.275352, 0, 0.383582, 0, 0.247423, 0, 0.454106, 0.153409, -1.2857, -0.208464 )
+visible = false
 
 [node name="Spatial4" parent="." instance=ExtResource( 6 )]
 transform = Transform( -0.428831, 0, -0.23297, 0, 0.464702, 0, -0.20934, 0, 0.477237, -0.359366, -1.2857, -0.133427 )
+visible = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.823915, -0.384453, 0.416365, -0.109977, 0.612266, 0.782966, -0.55594, -0.690888, 0.462174, 0, 2.08672, 0 )
 light_color = Color( 0.52549, 0.52549, 0.52549, 1 )
 light_energy = 0.7
 shadow_enabled = true
+
+[node name="DashWeed" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.48374, -0.401409 )

@@ -1,13 +1,10 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fish/DashParticles.gd" type="Script" id=1]
-
-[sub_resource type="SpatialMaterial" id=6]
-flags_transparent = true
-albedo_color = Color( 1, 0.533333, 0, 0.486275 )
+[ext_resource path="res://fish/DashBubble.tres" type="Material" id=2]
 
 [sub_resource type="SphereMesh" id=7]
-material = SubResource( 6 )
+material = ExtResource( 2 )
 radius = 0.07
 height = 0.14
 radial_segments = 16
