@@ -203,7 +203,15 @@ func _physics_process(delta):
 		
 			var mouse = fish_pattern.target_position
 			if mouse != null:
-				var dir = (mouse - transform.origin).normalized()
+				
+				
+				var from_avg_dir = (mouse - GS.fish_avg).normalized()
+				
+				var target = GS.fish_avg + from_avg_dir * 6
+				
+				var dir = (target - transform.origin).normalized()
+				
+				
 				velocity += (dir * movement_speed * 3)
 				velocity = velocity.normalized() * movement_speed * 1.4
 				var dp = DashParticles.instance()
