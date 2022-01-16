@@ -6,6 +6,8 @@ var cooldown = 0.0
 var col_timer = -1
 var del_timer = -1
 
+onready var center_obj = $Area/CollisionShape
+
 func was_hit():
 	#print("was hit")
 	if weeds_left == 4:
@@ -26,13 +28,23 @@ func was_hit():
 	weeds_left -= 1
 
 func _physics_process(delta):
+	var bods = $Area.get_overlapping_bodies()
+	
 	if cooldown <= 0.0:
-		var bods = $Area.get_overlapping_bodies()
-		if not bods.empty():
+		if weeds_left > 1 and not bods.empty():
 			cooldown = 0.4
 			was_hit()
+			
+		
 	else:
 		cooldown -= delta
+		
+	if weeds_left > 1 or cooldown > 0.0:
+		for bod in bods:
+			var fish = bod.get_parent()
+			var offset = fish.transform.origin - center_obj.global_transform.origin
+			offset.z = 0
+			fish.velocity = fish.velocity.length() * offset.normalized()
 		
 	if col_timer > 0.0:
 		col_timer -= delta
