@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://fish/Fish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://camera/OceanCamera.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://env/dash_wall/DashWall.tscn" type="PackedScene" id=11]
 [ext_resource path="res://env/geyser/Geyser.tscn" type="PackedScene" id=12]
 [ext_resource path="res://env/DashWeed.tscn" type="PackedScene" id=13]
+[ext_resource path="res://objects/sprocket/Sprocket.tscn" type="PackedScene" id=14]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 84.5582, 74.9645, 0.254787 )
@@ -198,3 +199,6 @@ transform = Transform( 1.54551, 0.218343, 0, -0.398258, 0.84732, 0, 0, 0, 1, -54
 
 [node name="DashWeed4" parent="." instance=ExtResource( 13 )]
 transform = Transform( 2.24562, 0.00544678, 0.429708, -0.0183172, 0.818978, 1.33246e-11, -1.06865, -0.00259203, 0.902968, -50.4518, -41.2636, -3.14145 )
+
+[node name="Sprocket" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.133, 3.52869, -0.595804 )
