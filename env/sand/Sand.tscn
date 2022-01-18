@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://env/sand/Sand.material" type="Material" id=1]
 [ext_resource path="res://env/sand/SandCaustics.tres" type="Material" id=2]
+[ext_resource path="res://env/DashWeed.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/sprocket/Sprocket.tscn" type="PackedScene" id=4]
+[ext_resource path="res://env/DashWeedDense.tscn" type="PackedScene" id=5]
+[ext_resource path="res://env/dash_wall/DashWall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://env/geyser/Geyser.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "sand2_Plane003"
@@ -18,7 +23,7 @@ surfaces/0 = {
 "vertex_count": 16246
 }
 
-[node name="Sand" type="Spatial"]
+[node name="Level" type="Spatial"]
 
 [node name="sand2" type="Spatial" parent="."]
 
@@ -26,3 +31,45 @@ surfaces/0 = {
 transform = Transform( 0.409721, 0, 0, 0, 0.409721, 0, 0, 0, 0.409721, 4.3175, -0.525101, 0 )
 mesh = SubResource( 1 )
 material/0 = ExtResource( 2 )
+
+[node name="DashWeed" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.8343, 2.18554, -4.83669 )
+
+[node name="DashWall" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.999102, 0.0423639, 0, -0.0423639, 0.999102, 0, 0, 0, 1, 36.3639, 39.0831, -3.35759 )
+
+[node name="DashWall2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.3804, 34.2136, -2.54603 )
+
+[node name="DashWall3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 0.993254, -0.11596, 0, 0.11596, 0.993254, 0, 0, 0, 1, 70.1488, 40.4542, -2.54603 )
+
+[node name="Spatial5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0814, 1.69072, -4.58339 )
+
+[node name="Spatial6" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1894, 1.82716, -5.77495 )
+rotate_mesh = 190
+
+[node name="Spatial7" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.8288, 1.57967, -4.08864 )
+rotate_mesh = 30
+
+[node name="DashWeed2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.946289, -0.323323, 0, 0.323323, 0.946289, 0, 0, 0, 1, -20.6928, -33.9624, -5.43231 )
+
+[node name="DashWeed5" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.680145, 0.733077, 0, -0.733077, -0.680145, 0, 0, 0, 1, -6.9542, -10.0815, -5.43231 )
+
+[node name="DashWeed6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.660395, -0.750918, 0, 0.750918, 0.660395, 0, 0, 0, 1, 6.34463, -9.47555, -5.43231 )
+
+[node name="DashWeed3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1.54551, 0.218343, 0, -0.398258, 0.84732, 0, 0, 0, 1, -35.5815, -36.2602, -5.96029 )
+
+[node name="DashWeed4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2.24562, 0.00544678, 0.429708, -0.0183172, 0.818978, 1.33246e-11, -1.06865, -0.00259203, 0.902968, -31.8158, -37.5943, -7.57673 )
+
+[node name="Sprocket" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.769, 7.19798, -5.03108 )
+sprocket_name = "Hidden Behind The Geyser"

@@ -13,8 +13,16 @@ func _ready():
 	for i in range(0, 10 + 1):
 		var fish = fish_root.get_node("Fish" + String(i))
 		fish_arr.append(fish)
+		
+var sprocket_target = null
 
-func _physics_process(delta):
+func notif_sprocket(sprocket):
+	sprocket_target = sprocket
+	
+func notif_sprocket_end():
+	sprocket_target = null
+	
+func get_target_fish():
 	var fish_avg = Vector3.ZERO
 	for fish in fish_arr:
 		fish_avg += fish.transform.origin
@@ -26,10 +34,22 @@ func _physics_process(delta):
 		
 	fish_avg /= fish_n
 	
-	var offset = fish_avg - $FishTarget.global_transform.origin
+	return fish_avg
+	
+func get_target_sprocket():
+	return sprocket_target.global_transform.origin
+
+func _physics_process(delta):
+	var target
+	if sprocket_target != null:
+		target = get_target_sprocket()
+	else:
+		target = get_target_fish()
+	
+	var offset = target - $FishTarget.global_transform.origin
 	
 	var lerp_strength = (offset.length() - 2.0) / 4.0
-	lerp_strength = clamp(lerp_strength, 0, 0.7)
+	lerp_strength = clamp(lerp_strength, 0.05, 0.3)
 	
 	transform.origin += offset * GS.lpfa(lerp_strength) * delta
 	
