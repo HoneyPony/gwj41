@@ -5,6 +5,8 @@ var fish_set = []
 
 var camera_pivot = null
 
+var picked_up_object = null
+
 var lock_fish_sprocket_count = 0
 
 func lpfa(a):

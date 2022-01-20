@@ -6,12 +6,13 @@
 [sub_resource type="SphereShape" id=1]
 radius = 1.2341
 
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.321886, 0.313555, 0.324886 )
+[sub_resource type="CapsuleShape" id=2]
+radius = 0.760708
+height = 10.1866
 
 [node name="GemGreen" type="KinematicBody" groups=["GemGreen"]]
 collision_layer = 8
-collision_mask = 16
+collision_mask = 24
 script = ExtResource( 2 )
 rot_target = NodePath("GemGreen")
 
@@ -25,4 +26,5 @@ collision_mask = 4
 shape = SubResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152305, 0 )
 shape = SubResource( 2 )

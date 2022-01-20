@@ -16,7 +16,7 @@ S Idea: Basketball
 
 You have to throw a basketball through a wall and land it on a somewhat specific spot.
 
-S Idea: Fish Split
+IS Idea: Fish Split
 
 You have to have some of the fish go in two different directions.
 
@@ -28,7 +28,7 @@ S Idea: Race
 
 You have to move around a race track within a certain period of time.
 
-S Idea: Through the weeds
+IS Idea: Through the weeds
 
 You have to go through a bunch of Dash Weeds.
 

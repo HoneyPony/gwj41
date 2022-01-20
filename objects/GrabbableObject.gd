@@ -21,10 +21,14 @@ func check_dash_area(delta):
 	if ignore_dash_area_timer > 0.0:
 		ignore_dash_area_timer -= delta
 		return
+		
+	if GS.picked_up_object != null:
+		return
 	
 	var bods = $DashArea.get_overlapping_bodies()
 	if not bods.empty():
 		is_picked_up = true
+		GS.picked_up_object = self
 
 func compute_release_velocity():
 	velocity = Vector3.ZERO
@@ -60,6 +64,7 @@ func _physics_process(delta):
 	if is_picked_up:
 		if Input.is_action_just_pressed("fish_dash"):
 			is_picked_up = false
+			GS.picked_up_object = null
 			ignore_dash_area_timer = 0.25
 			flag_compute_release_velocity = true
 			
@@ -108,3 +113,10 @@ func _physics_process(delta):
 		velocity += gravity * delta
 			
 		velocity = move_and_slide(velocity)
+		
+		var snap_to_zero = global_transform.origin
+		snap_to_zero.x = 0
+		snap_to_zero.y = 0
+		snap_to_zero.z = -snap_to_zero.z
+		
+		move_and_collide(snap_to_zero)
