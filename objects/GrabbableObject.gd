@@ -14,6 +14,9 @@ var filtered_target = Vector3.ZERO
 export var damp_accel = 15.0
 export var damp_max_mul = 6.0
 
+export(NodePath) onready var rot_target = GS.nodefp(self, rot_target)
+export var do_rotate = false
+
 func check_dash_area(delta):
 	if ignore_dash_area_timer > 0.0:
 		ignore_dash_area_timer -= delta
@@ -30,8 +33,25 @@ func compute_release_velocity():
 		velocity += fish.velocity
 		
 	velocity /= GS.fish_set.size()
+	
+var target_basis = Basis.IDENTITY
 
 func _physics_process(delta):
+	
+	if do_rotate:
+		var vel = velocity
+		if vel.length() > 0.05:
+			vel = vel.normalized()
+			if abs(vel.y) > 0.999:
+				vel.x = 0.2
+				vel = vel.normalized()
+				
+			var tmp = rot_target.transform.basis
+			rot_target.look_at(rot_target.global_transform.origin + vel, Vector3.UP)
+			target_basis = rot_target.transform.basis
+			rot_target.transform.basis = tmp
+			
+		rot_target.transform.basis = rot_target.transform.basis.slerp(target_basis, GS.lpfa(0.05) * delta)
 
 	if flag_compute_release_velocity:
 		flag_compute_release_velocity = false
