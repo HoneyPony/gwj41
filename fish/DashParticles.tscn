@@ -1,14 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://fish/DashParticles.gd" type="Script" id=1]
-[ext_resource path="res://fish/DashBubble.tres" type="Material" id=2]
-
-[sub_resource type="SphereMesh" id=7]
-material = ExtResource( 2 )
-radius = 0.07
-height = 0.14
-radial_segments = 16
-rings = 8
+[ext_resource path="res://env/geyser/GeyserBubble.tres" type="ArrayMesh" id=2]
 
 [sub_resource type="Curve" id=8]
 _data = [ Vector2( 0, 0.981982 ), 0.0, -0.294879, 0, 0, Vector2( 1, 0 ), -3.49621, 0.0, 0, 0 ]
@@ -20,7 +13,7 @@ one_shot = true
 explosiveness = 0.79
 lifetime_randomness = 0.43
 local_coords = false
-mesh = SubResource( 7 )
+mesh = ExtResource( 2 )
 emission_shape = 1
 emission_sphere_radius = 0.1
 spread = 180.0
