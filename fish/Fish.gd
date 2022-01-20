@@ -203,6 +203,10 @@ func process_geysers(delta):
 		
 
 func _physics_process(delta):
+	if GS.lock_fish_sprocket_count > 0:
+		return
+	
+	
 	var should_go_towards_target = true
 	
 	var new_target = find_target_position()

@@ -3,6 +3,10 @@ extends Node
 var camera
 var fish_set = []
 
+var camera_pivot = null
+
+var lock_fish_sprocket_count = 0
+
 func lpfa(a):
 	return a * 60.0
 	
@@ -21,3 +25,4 @@ func _physics_process(delta):
 		fish_avg += fish.transform.origin
 		
 	fish_avg /= fish_set.size()
+

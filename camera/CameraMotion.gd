@@ -6,8 +6,10 @@ var fish_arr = []
 
 onready var fish_pattern = get_node("../FishPattern")
 
+var sprocket_timer = -1.0
+
 func _ready():
-	
+	GS.camera_pivot = self
 	
 	var fish_root = get_parent()
 	for i in range(0, 10 + 1):
@@ -52,6 +54,13 @@ func _physics_process(delta):
 	
 	var lerp_strength = (offset.length() - 2.0) / 4.0
 	lerp_strength = clamp(lerp_strength, 0.05, 0.3)
+	
+	if sprocket_target != null:
+		sprocket_timer = 0.8
+		
+	sprocket_timer = max(sprocket_timer - delta, -1.0)
+	if sprocket_timer >= 0:
+		lerp_strength = 0.03
 	
 	transform.origin += offset * GS.lpfa(lerp_strength) * delta
 	

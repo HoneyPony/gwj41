@@ -7,7 +7,13 @@ export var sprocket_name = "My Sprocket"
 
 var is_collected = false
 
+export var is_disabled = false
+
 export var fish_lerp: float = 0.0 
+
+func _ready():
+	if is_disabled:
+		hide()
 
 func check_collection():
 	if is_collected:
@@ -21,10 +27,11 @@ func check_collection():
 			node.notif_sprocket(self)
 
 func _physics_process(delta):
-	model_pivot.rotate_y(delta * TAU * 0.25)
-	model.rotate_z(delta * TAU * 0.75)
+	if not is_disabled:
+		model_pivot.rotate_y(delta * TAU * 0.25)
+		model.rotate_z(delta * TAU * 0.75)
 	
-	check_collection()
+		check_collection()
 	
 	global_transform.origin = global_transform.origin.linear_interpolate(GS.fish_avg, fish_lerp)
 	
@@ -36,3 +43,14 @@ func notif_sprocket_end(sprocket):
 		$AnimationPlayer.play("SprocketCollect")
 		
 	
+func on_spawn():
+	GS.camera_pivot.notif_sprocket(self)
+	GS.lock_fish_sprocket_count += 1
+	
+func on_spawn_end():
+	is_disabled = false
+	GS.camera_pivot.notif_sprocket_end(self)
+	GS.lock_fish_sprocket_count -= 1
+	
+func activate():
+	$AnimationPlayer.play("SprocketSpawn")
