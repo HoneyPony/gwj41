@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://fish/3d/GoldfishEye.material" type="Material" id=1]
 [ext_resource path="res://fish/Fish.gd" type="Script" id=2]
 [ext_resource path="res://fish/3d/FishMat.material" type="Material" id=3]
 [ext_resource path="res://fish/3d/OnlyShadow.material" type="Material" id=4]
-[ext_resource path="res://fish/DashParticles.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ArrayMesh" id=5]
 resource_name = "fish_fancier2_shadow_Cube001"
@@ -290,10 +289,11 @@ material/0 = ExtResource( 3 )
 autoplay = "FishArmAction"
 anims/FishArmAction = SubResource( 9 )
 
+[node name="DashPartSpawn" type="Spatial" parent="FishRot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0682671, -0.153609 )
+
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 8 )
-
-[node name="DashParticles" parent="." instance=ExtResource( 5 )]
 
 [node name="DashCollider" type="KinematicBody" parent="."]
 collision_layer = 4

@@ -23,6 +23,8 @@ export var fish_number: int = 0
 
 onready var fish_target = GS.nodefp(fish_pattern, "Fish" + String(fish_number))
 
+onready var dash_part_spawn = $FishRot/DashPartSpawn
+
 var dash_timer = 0.0
 var my_custom_anim_speed
 
@@ -205,6 +207,7 @@ func _physics_process(delta):
 	
 	var new_target = find_target_position()
 	if new_target != null:
+		new_target.z = 0
 		if target_position == null:
 			target_position = new_target
 		target_position = new_target
@@ -245,7 +248,7 @@ func _physics_process(delta):
 				velocity += (dir * movement_speed * 3)
 				velocity = velocity.normalized() * movement_speed * 1.4
 				var dp = DashParticles.instance()
-				add_child(dp)
+				dash_part_spawn.add_child(dp)
 				
 				dash_timer = 0.4
 	dash_shape.disabled = dash_timer <= 0.2

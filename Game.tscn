@@ -81,11 +81,11 @@ tracks/0/keys = {
 [node name="Root" type="Spatial"]
 
 [node name="Spatial" type="Spatial" parent="." groups=["SprocketNotif"]]
-transform = Transform( 1, 0, 0, 0, 0.942046, 0.335485, 0, -0.335485, 0.942046, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.942046, 0.335485, 0, -0.335485, 0.942046, 112.688, -10.2918, 0 )
 script = ExtResource( 7 )
 
 [node name="Camera" type="Camera" parent="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 48 )
 current = true
 fov = 17.5
 size = 7.0
@@ -93,60 +93,72 @@ script = ExtResource( 2 )
 
 [node name="FishTarget" type="Spatial" parent="Spatial"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 4 )
-
-[node name="StaticBody" type="StaticBody" parent="."]
+[node name="MouseCol" type="StaticBody" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.942045, -0.335485, 0, 0.335485, 0.942045, 0, 0, 0 )
 collision_layer = 2147483648
 collision_mask = 2147483648
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/MouseCol"]
 shape = SubResource( 4 )
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 4 )
+
 [node name="Fish0" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_pattern = NodePath("../FishPattern")
 
 [node name="Fish1" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_color = Color( 1, 0.305882, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 1
 
 [node name="Fish2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_color = Color( 1, 0.937255, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 2
 
 [node name="Fish3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_color = Color( 1, 0.352941, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 3
 
 [node name="Fish4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_color = Color( 1, 0.74902, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 4
 
 [node name="Fish5" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 5
 
 [node name="Fish6" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 6
 
 [node name="Fish7" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 7
 
 [node name="Fish8" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 8
 
 [node name="Fish9" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 9
 
 [node name="Fish10" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 115.387, -9.96069, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 10
 
@@ -205,7 +217,7 @@ __meta__ = {
 }
 
 [node name="Level" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.011, -3.36215, 2.34551 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9241, -101.261, 1.95419 )
 
 [node name="SprocketUI" type="Control" parent="." groups=["SprocketNotif"]]
 modulate = Color( 1, 1, 1, 0 )

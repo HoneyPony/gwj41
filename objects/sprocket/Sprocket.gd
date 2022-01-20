@@ -31,7 +31,8 @@ func _physics_process(delta):
 func notif_sprocket(sprocket):
 	pass
 	
-func notif_sprocket_end():
-	$AnimationPlayer.play("SprocketCollect")
+func notif_sprocket_end(sprocket):
+	if sprocket == self:
+		$AnimationPlayer.play("SprocketCollect")
 		
 	

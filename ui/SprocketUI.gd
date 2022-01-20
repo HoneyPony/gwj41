@@ -1,14 +1,16 @@
 extends Control
 
 var should_leave_screen = false
+var leave_sprocket = null
 
 func notif_sprocket(sprocket):
 	$AnimationPlayer.play("FadeIn")
 	should_leave_screen = false
+	leave_sprocket = sprocket
 	
 	$SprocketName.text = '"' + sprocket.sprocket_name + '"'
 
-func notif_sprocket_end():
+func notif_sprocket_end(sprocket):
 	$AnimationPlayer.play("FadeOut")
 
 func enable_done():
@@ -20,4 +22,4 @@ func _process(delta):
 			should_leave_screen = false
 			
 			for node in get_tree().get_nodes_in_group("SprocketNotif"):
-				node.notif_sprocket_end()
+				node.notif_sprocket_end(leave_sprocket)

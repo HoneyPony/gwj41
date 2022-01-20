@@ -45,7 +45,7 @@ func _physics_process(delta):
 			
 		var target_position = Vector3.ZERO
 		for fish in GS.fish_set:
-			target_position += fish.transform.origin
+			target_position += fish.global_transform.origin
 			
 		target_position /= GS.fish_set.size()
 		
@@ -63,7 +63,7 @@ func _physics_process(delta):
 #		filtered_target += (target_position - filtered_target) * GS.lpfa(0.3) * delta
 #
 		var max_dist_moved = (3 * 60 * delta)
-		var dif = target_position - transform.origin
+		var dif = target_position - global_transform.origin
 		if dif.length_squared() > (max_dist_moved * max_dist_moved):
 			dif = dif.normalized() * max_dist_moved
 			

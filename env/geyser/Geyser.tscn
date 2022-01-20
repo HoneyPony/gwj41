@@ -26,7 +26,7 @@ _data = [ Vector2( 0, 0.315315 ), 0.0, 5.87739, 0, 0, Vector2( 0.084449, 1 ), 0.
 radius = 1.09652
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.8, 10.839, 10 )
+extents = Vector3( 1.6, 10.839, 1.6 )
 
 [node name="Geyser" type="Spatial"]
 script = ExtResource( 3 )

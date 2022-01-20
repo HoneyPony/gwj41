@@ -19,7 +19,7 @@ var sprocket_target = null
 func notif_sprocket(sprocket):
 	sprocket_target = sprocket
 	
-func notif_sprocket_end():
+func notif_sprocket_end(sprocket):
 	sprocket_target = null
 	
 func get_target_fish():
@@ -45,6 +45,8 @@ func _physics_process(delta):
 		target = get_target_sprocket()
 	else:
 		target = get_target_fish()
+		
+	target.z = 0
 	
 	var offset = target - $FishTarget.global_transform.origin
 	
