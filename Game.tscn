@@ -217,7 +217,7 @@ __meta__ = {
 }
 
 [node name="Level" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9241, -101.261, 1.95419 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.924, -101.261, 2 )
 
 [node name="SprocketUI" type="Control" parent="." groups=["SprocketNotif"]]
 modulate = Color( 1, 1, 1, 0 )
