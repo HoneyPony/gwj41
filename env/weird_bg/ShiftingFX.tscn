@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://opengameart/Caustics/frames/caust_001.png" type="Texture" id=1]
+
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "ShiftingFX_Plane"
+surfaces/0 = {
+"aabb": AABB( -47.4201, -47.4201, 0, 94.8402, 94.8402, 1e-05 ),
+"array_data": PoolByteArray( 48, 174, 61, 194, 49, 174, 61, 194, 0, 0, 0, 128, 0, 0, 127, 63, 0, 0, 0, 60, 48, 174, 61, 66, 49, 174, 61, 194, 0, 0, 0, 128, 0, 0, 127, 63, 0, 60, 0, 60, 48, 174, 61, 194, 49, 174, 61, 66, 0, 0, 0, 128, 0, 0, 127, 63, 0, 0, 0, 0, 48, 174, 61, 66, 49, 174, 61, 66, 0, 0, 0, 128, 0, 0, 127, 63, 0, 60, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 6,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="Shader" id=2]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.2.stable's SpatialMaterial.
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,unshaded;
+uniform vec4 albedo : hint_color;
+uniform vec4 albedo2: hint_color;
+uniform sampler2D texture_albedo : hint_albedo;
+uniform float specular;
+uniform float metallic;
+uniform float alpha_scissor_threshold;
+uniform float roughness : hint_range(0,1);
+uniform float point_size : hint_range(0,128);
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+uniform sampler2D texture_fx : hint_black_albedo;
+
+
+void vertex() {
+	UV=UV*uv1_scale.xy+uv1_offset.xy;
+}
+
+
+
+
+void fragment() {
+	
+	vec2 uv_c = UV;
+	uv_c.y *= 10.0;
+	vec2 uv_c1 = uv_c + vec2(TIME * 0.005 * 0.5, TIME * 0.0002);
+	vec2 uv_c2 = uv_c + vec2(TIME * -0.008 * 0.5 + 3.0, TIME * 0.0003);
+	
+	uv_c1 += 0.5 * sin(uv_c1);
+	uv_c2 += 0.3 * cos(uv_c2);
+	
+	
+	vec4 emission_tex_1 = texture(texture_fx,uv_c1);
+	vec4 emission_tex_2 = texture(texture_fx,uv_c2);
+	
+	//float mix_amount = clamp(sin(10.0 * uv_c1.x) + sin(10.0 * uv_c2.z), -1.0, 1.0);
+	
+	emission_tex_1 = mix(emission_tex_1, emission_tex_2, 0.5);
+	
+	float r = 1.0 - emission_tex_1.r;
+	r = r * r * r;
+	r = 1.0 - r;
+	
+	ALBEDO = mix(albedo2, albedo, (r - 0.8) / 0.7).rgb;
+	ALPHA = r;
+	ALPHA_SCISSOR=0.8;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/albedo = Color( 0.207843, 0.419608, 0.74902, 1 )
+shader_param/albedo2 = Color( 0.0705882, 0.0823529, 0.760784, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.0
+shader_param/alpha_scissor_threshold = 0.95
+shader_param/roughness = 1.0
+shader_param/point_size = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/texture_fx = ExtResource( 1 )
+
+[node name="ShiftingFX" type="Spatial"]
+
+[node name="ShiftingFX" type="Spatial" parent="."]
+
+[node name="Plane" type="MeshInstance" parent="ShiftingFX"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
