@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://clam/Clam.material" type="Material" id=1]
 [ext_resource path="res://clam/Eyeball.material" type="Material" id=2]
+[ext_resource path="res://clam/Clam.gd" type="Script" id=3]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Clam_Plane"
@@ -119,17 +120,48 @@ tracks/1/keys = {
 "values": [ Vector3( -4.655, -4.73261e-08, 7.04378e-07 ) ]
 }
 
-[node name="Clam" type="Spatial"]
+[sub_resource type="Animation" id=7]
+resource_name = "Talk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Clam/ShellT:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -2.76283, 180, 1.86997e-07 ), Vector3( 39.3752, 180, -7.16259e-06 ), Vector3( -2.76283, 180, 1.86997e-07 ), Vector3( 34.5792, 180, -6.28406e-06 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Clam/ShellT/EyePivot:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -4.655, -4.73261e-08, 7.04378e-07 ), Vector3( 7.797, -3.03039e-08, -1.11631e-06 ), Vector3( -4.655, -4.73261e-08, 7.04378e-07 ), Vector3( 7.797, -3.03039e-08, -1.11631e-06 ) ]
+}
+
+[node name="Clam" type="Area"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 3 )
 
 [node name="Clam" type="Spatial" parent="."]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 
 [node name="ShellB" type="MeshInstance" parent="Clam"]
 mesh = SubResource( 1 )
 material/0 = null
 
 [node name="ShellT" type="MeshInstance" parent="Clam"]
-transform = Transform( 1, 4.01457e-09, -1.5082e-07, -3.25991e-09, -0.998838, -0.0482018, 1.50838e-07, -0.0482018, 0.998838, 0, 0.0206357, -1.78919 )
+transform = Transform( 1, 4.01457e-09, -1.5082e-07, -3.25991e-09, -0.998837, -0.0482018, 1.50838e-07, -0.0482018, 0.998837, 0, 0.0206357, -1.78919 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -137,13 +169,13 @@ material/0 = null
 transform = Transform( 1, -1.22267e-08, -8.23273e-10, 1.22532e-08, 0.996703, 0.0811559, -1.7171e-10, -0.0811559, 0.996703, 8.33804e-07, -0.379159, 1.38509 )
 
 [node name="EyeL" type="MeshInstance" parent="Clam/ShellT/EyePivot"]
-transform = Transform( 1, 1.42109e-14, 0, 0, -0.997557, -0.0698405, 0, -0.0698405, 0.997557, -8.33804e-07, 0.379159, -1.38508 )
+transform = Transform( 1, 0, 1.13687e-13, 7.10543e-15, -0.997557, -0.0698405, 0, -0.0698404, 0.997557, -8.32336e-07, 0.309699, -1.37775 )
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
 material/0 = null
 
 [node name="EyeR" type="MeshInstance" parent="Clam/ShellT/EyePivot"]
-transform = Transform( -1, 0, 0, 0, -0.997557, -0.0698405, 0, -0.0698405, 0.997557, -8.33804e-07, 0.379159, -1.38508 )
+transform = Transform( -1, -2.84217e-14, 1.13687e-13, -7.10543e-15, -0.997557, -0.0698404, 0, -0.0698405, 0.997557, -8.32336e-07, 0.309699, -1.37775 )
 mesh = SubResource( 4 )
 skeleton = NodePath("../..")
 material/0 = null
@@ -152,3 +184,4 @@ material/0 = null
 autoplay = "Normal"
 anims/Normal = SubResource( 5 )
 anims/RESET = SubResource( 6 )
+anims/Talk = SubResource( 7 )

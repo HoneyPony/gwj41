@@ -16,6 +16,7 @@ export var max_anim_speed = 4
 onready var pivot = $FishRot
 
 onready var dash_shape = $DashCollider/CollisionShape
+onready var dash_col = $DashCollider
 
 export(NodePath) onready var fish_pattern = GS.nodefp(self, fish_pattern)
 
@@ -27,6 +28,8 @@ onready var dash_part_spawn = $FishRot/DashPartSpawn
 
 var dash_timer = 0.0
 var my_custom_anim_speed
+
+var dialog_lockout_dash = -1.0
 
 func _ready():
 	fish_mesh.get_active_material(0).albedo_color = fish_color
@@ -203,8 +206,9 @@ func process_geysers(delta):
 		
 
 func _physics_process(delta):
-
-	
+	dialog_lockout_dash = max(dialog_lockout_dash - delta, -1.0)
+	if not GS.camera.current:
+		dialog_lockout_dash = 0.2
 	
 	var should_go_towards_target = true
 	
@@ -229,13 +233,13 @@ func _physics_process(delta):
 		#print(target_position)
 	process_pivot_rotation(delta)
 
-	if GS.lock_fish_sprocket_count <= 0:
+	if GS.fish_unlocked():
 		process_movement(delta, should_go_towards_target)
 	
 	process_geysers(delta)
 	
 	if Input.is_action_just_pressed("fish_dash"):
-		if dash_timer <= 0.0:
+		if dash_timer <= 0.0 and dialog_lockout_dash <= 0.0:
 		
 			var mouse = fish_pattern.target_position
 			if mouse != null:
@@ -257,6 +261,9 @@ func _physics_process(delta):
 				dash_timer = 0.4
 	dash_shape.disabled = dash_timer <= 0.2
 	dash_timer = max(dash_timer - delta, -1)
+	
+	dash_col.set_collision_layer_bit(2, not dash_shape.disabled)
+	
 	
 	set_collision_mask_bit(5, dash_timer <= -0.2)
 	

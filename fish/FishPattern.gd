@@ -36,6 +36,9 @@ var target_rotation = Basis.IDENTITY
 var is_mostly_still = false
 
 func _physics_process(delta):
+	if not GS.fish_unlocked():
+		return
+	
 	var last_target = target_position
 	target_position = find_mouse_target_position()
 	

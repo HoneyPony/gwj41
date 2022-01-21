@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://fish/Fish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://camera/OceanCamera.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://GameUITheme.tres" type="Theme" id=8]
 [ext_resource path="res://ui/SprocketUI.gd" type="Script" id=9]
 [ext_resource path="res://FPS.gd" type="Script" id=10]
+[ext_resource path="res://DialogUI.gd" type="Script" id=11]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 84.5582, 74.9645, 0.254787 )
@@ -281,6 +282,7 @@ anims/RESET = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 8 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -328,3 +330,49 @@ text = "You there! Are you up for a race around the track?"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LButton" type="Button" parent="DialogUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -186.0
+margin_top = -68.0
+margin_right = -13.0
+margin_bottom = -12.0
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CButton" type="Button" parent="DialogUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -89.0
+margin_top = -68.0
+margin_right = 84.0
+margin_bottom = -12.0
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RButton" type="Button" parent="DialogUI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = -68.0
+margin_right = 176.0
+margin_bottom = -12.0
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="DialogUI/LButton" to="DialogUI" method="_on_B0"]
+[connection signal="pressed" from="DialogUI/CButton" to="DialogUI" method="_on_B0"]
+[connection signal="pressed" from="DialogUI/RButton" to="DialogUI" method="_on_B1"]

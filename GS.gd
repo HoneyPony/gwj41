@@ -1,7 +1,45 @@
 extends Node
 
+class Dialog:
+	var title
+	var text
+
+	var button_0
+	var button_1
+	
+	var d0 = null
+	var f0 = null
+	
+	var d1 = null
+	var f1 = null
+	
+	func _init(title_, text_, button_0_ = "Next", button_1_ = null):
+		title = title_
+		text = text_
+		button_0 = button_0_
+		button_1 = button_1_
+		
+	func on_0(dialog, fref = null):
+		d0 = dialog
+		f0 = fref
+		return self
+		
+	func on_1(dialog, fref = null):
+		d1 = dialog
+		f1 = fref
+		return self
+		
+
 var camera
 var fish_set = []
+
+var dialog_ui = null
+
+func fish_unlocked():
+	return GS.lock_fish_sprocket_count <= 0 and camera.current
+
+func open_dialog(obj):
+	dialog_ui.open_dialog(obj)
 
 var camera_pivot = null
 
