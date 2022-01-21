@@ -207,7 +207,7 @@ func process_geysers(delta):
 
 func _physics_process(delta):
 	dialog_lockout_dash = max(dialog_lockout_dash - delta, -1.0)
-	if not GS.camera.current:
+	if GS.dialog_is_open():
 		dialog_lockout_dash = 0.2
 	
 	var should_go_towards_target = true

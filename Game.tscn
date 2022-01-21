@@ -333,13 +333,14 @@ __meta__ = {
 }
 
 [node name="LButton" type="Button" parent="DialogUI"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -186.0
+margin_left = -379.0
 margin_top = -68.0
-margin_right = -13.0
+margin_right = -6.0
 margin_bottom = -12.0
 text = "Yes"
 __meta__ = {
@@ -351,9 +352,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -89.0
+margin_left = -401.0
 margin_top = -68.0
-margin_right = 84.0
+margin_right = 379.0
 margin_bottom = -12.0
 text = "Yes"
 __meta__ = {
@@ -361,13 +362,14 @@ __meta__ = {
 }
 
 [node name="RButton" type="Button" parent="DialogUI"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 10.0
+margin_left = 3.0
 margin_top = -68.0
-margin_right = 176.0
+margin_right = 362.0
 margin_bottom = -12.0
 text = "No"
 __meta__ = {

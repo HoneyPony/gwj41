@@ -76,7 +76,13 @@ func compute_release_velocity():
 	
 var target_basis = Basis.IDENTITY
 
+var dialog_lockout_dash = -1.0
+
 func _physics_process(delta):
+	dialog_lockout_dash = max(dialog_lockout_dash - delta, -1.0)
+	if GS.dialog_is_open():
+		dialog_lockout_dash = 0.2
+	
 	if frozen:
 		set_collision_layer_bit(3, false)
 		set_collision_mask_bit(3, false)
@@ -115,11 +121,12 @@ func _physics_process(delta):
 	if is_picked_up:
 		
 		if Input.is_action_just_pressed("fish_dash"):
-			is_picked_up = false
-			GS.picked_up_object = null
-			GS.picked_up_timer = 0.4
-			ignore_dash_area_timer = 0.25
-			flag_compute_release_velocity = true
+			if dialog_lockout_dash <= 0.0:
+				is_picked_up = false
+				GS.picked_up_object = null
+				GS.picked_up_timer = 0.4
+				ignore_dash_area_timer = 0.25
+				flag_compute_release_velocity = true
 			
 		var target_position = Vector3.ZERO
 		for fish in GS.fish_set:

@@ -35,6 +35,9 @@ var fish_set = []
 
 var dialog_ui = null
 
+func dialog_is_open():
+	return dialog_ui.current_dialog != null
+
 func fish_unlocked():
 	return GS.lock_fish_sprocket_count <= 0 and camera.current
 

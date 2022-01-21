@@ -161,12 +161,12 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="ShellT" type="MeshInstance" parent="Clam"]
-transform = Transform( 1, 4.01457e-09, -1.5082e-07, -3.25991e-09, -0.998837, -0.0482018, 1.50838e-07, -0.0482018, 0.998837, 0, 0.0206357, -1.78919 )
+transform = Transform( 1, -7.47764e-09, 8.73211e-08, -3.25992e-09, -0.998837, -0.0482018, -8.75801e-08, -0.0482018, 0.998837, 0, 0.0206357, -1.78919 )
 mesh = SubResource( 2 )
 material/0 = null
 
 [node name="EyePivot" type="Spatial" parent="Clam/ShellT"]
-transform = Transform( 1, -1.22267e-08, -8.23273e-10, 1.22532e-08, 0.996703, 0.0811559, -1.7171e-10, -0.0811559, 0.996703, 8.33804e-07, -0.379159, 1.38509 )
+transform = Transform( 1, -1.22267e-08, -8.23273e-10, 1.22532e-08, 0.996703, 0.0811559, -1.71709e-10, -0.0811559, 0.996703, 8.33804e-07, -0.379159, 1.38509 )
 
 [node name="EyeL" type="MeshInstance" parent="Clam/ShellT/EyePivot"]
 transform = Transform( 1, 0, 1.13687e-13, 7.10543e-15, -0.997557, -0.0698405, 0, -0.0698404, 0.997557, -8.32336e-07, 0.309699, -1.37775 )

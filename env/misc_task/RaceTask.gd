@@ -19,6 +19,8 @@ var lap_num = 1
 onready var lap = $Control/Lap
 onready var time = $Control/Time
 
+onready var race_clam = get_node("../RaceClam")
+
 export(NodePath) onready var sprocket = GS.nodefp(self, sprocket)
 
 var current_check = 0
@@ -70,8 +72,11 @@ func end_race():
 	is_racing = false
 	$AnimationPlayer.play("Open")
 	
-	if race_timer <= 35.0:
-		sprocket.activate()
+	race_clam.race_done(race_timer <= 35.0)
+#
+
+#	if race_timer <= 30.0:
+#		sprocket.activate()
 
 func _physics_process(delta):
 	$Control.visible = is_racing
