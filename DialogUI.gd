@@ -28,6 +28,9 @@ func open_dialog(obj):
 	t_index = 0
 	t_timer = 0.0
 	
+	if obj.c != null:
+		obj.c.set_current(true)
+	
 var t_timer = 0.0
 var t_index = 0
 func _process(delta):

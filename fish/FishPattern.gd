@@ -35,12 +35,18 @@ var target_rotation = Basis.IDENTITY
 
 var is_mostly_still = false
 
+onready var starter = get_node("../StartingTarget")
+var track_mouse = false
+
 func _physics_process(delta):
 	if not GS.fish_unlocked():
 		return
 	
 	var last_target = target_position
-	target_position = find_mouse_target_position()
+	if track_mouse:
+		target_position = find_mouse_target_position()
+	else:
+		target_position = starter.global_transform.origin
 	
 
 	

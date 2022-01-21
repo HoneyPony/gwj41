@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://env/geyser/GeyserBubble.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://GameUITheme.tres" type="Theme" id=2]
+[ext_resource path="res://font/montserrat/Montserrat-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0.315315 ), 0.0, 5.87739, 0, 0, Vector2( 0.084449, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.771459, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.35856, 0.0, 0, 0 ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 3 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.66525, -0.0205399 )
+amount = 400
+lifetime = 3.0
+lifetime_randomness = 0.21
+mesh = ExtResource( 1 )
+emission_shape = 2
+emission_box_extents = Vector3( 5, 0.2, 3 )
+direction = Vector3( 0, 1, 0 )
+spread = 5.0
+gravity = Vector3( 0, 0.3, 0 )
+initial_velocity = 0.8
+initial_velocity_random = 1.0
+radial_accel = 0.7
+radial_accel_random = 1.0
+scale_amount = 3.0
+scale_amount_random = 1.0
+scale_amount_curve = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.54578 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.5
+margin_top = 277.0
+margin_right = 99.5
+margin_bottom = 333.0
+text = "Play Game"
+
+[node name="Button2" type="Button" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -99.0
+margin_top = 345.0
+margin_right = 100.0
+margin_bottom = 401.0
+text = "Quit"
+
+[node name="Label" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -490.0
+margin_top = 33.0
+margin_right = 490.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 2 )
+text = "Captain Redfin"
+align = 1
+
+[node name="Label3" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -490.0
+margin_top = 127.0
+margin_right = 490.0
+margin_bottom = 172.0
+text = "and the"
+align = 1
+
+[node name="Label2" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -490.0
+margin_top = 153.0
+margin_right = 490.0
+margin_bottom = 267.0
+custom_fonts/font = SubResource( 2 )
+text = "Many Missing Sprockets"
+align = 1

@@ -13,6 +13,8 @@ class Dialog:
 	var d1 = null
 	var f1 = null
 	
+	var c = null
+	
 	func _init(title_, text_, button_0_ = "Next", button_1_ = null):
 		title = title_
 		text = text_
@@ -27,6 +29,10 @@ class Dialog:
 	func on_1(dialog, fref = null):
 		d1 = dialog
 		f1 = fref
+		return self
+		
+	func cam(c_):
+		c = c_
 		return self
 		
 
