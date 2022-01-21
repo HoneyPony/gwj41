@@ -20,6 +20,11 @@ func open_dialog(obj):
 	$RButton.hide()
 	$CButton.hide()
 	
+	$LButton.text = obj.button_0
+	$CButton.text = obj.button_0
+	if obj.button_1 != null:
+		$RButton.text = obj.button_1
+	
 	t_index = 0
 	t_timer = 0.0
 	

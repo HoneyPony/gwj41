@@ -208,6 +208,7 @@ light_energy = 0.7
 shadow_enabled = true
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 51.0
