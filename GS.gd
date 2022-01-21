@@ -6,6 +6,7 @@ var fish_set = []
 var camera_pivot = null
 
 var picked_up_object = null
+var picked_up_timer = -1.0
 
 var lock_fish_sprocket_count = 0
 
@@ -21,10 +22,15 @@ func nodefp(src, path):
 var fish_avg = Vector3.ZERO
 
 func _physics_process(delta):
+	picked_up_timer = max(-1.0, picked_up_timer - delta)
+	
 	fish_avg = Vector3.ZERO
 	
 	for fish in fish_set:
 		fish_avg += fish.transform.origin
 		
 	fish_avg /= fish_set.size()
+	
+	#print("timer: ", picked_up_timer)
+	#print("the node: ", picked_up_object)
 

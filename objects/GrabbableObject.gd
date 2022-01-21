@@ -3,6 +3,9 @@ extends KinematicBody
 var is_picked_up = false
 var ignore_dash_area_timer = 0.0
 
+var frozen = false
+var frozen_target = null
+
 var flag_compute_release_velocity = false
 
 var velocity: Vector3 = Vector3.ZERO
@@ -16,6 +19,15 @@ export var damp_max_mul = 6.0
 
 export(NodePath) onready var rot_target = GS.nodefp(self, rot_target)
 export var do_rotate = false
+export var random_rotate = false
+
+func _ready():
+	set_collision_layer_bit(7, true)
+	
+	if random_rotate:
+		rot_target.rotate_x(rand_range(0, TAU))
+		rot_target.rotate_y(rand_range(0, TAU))
+		rot_target.rotate_z(rand_range(0, TAU))
 
 func check_dash_area(delta):
 	if ignore_dash_area_timer > 0.0:
@@ -23,6 +35,9 @@ func check_dash_area(delta):
 		return
 		
 	if GS.picked_up_object != null:
+		return
+		
+	if GS.picked_up_timer > 0.0:
 		return
 	
 	var bods = $DashArea.get_overlapping_bodies()
@@ -41,6 +56,24 @@ func compute_release_velocity():
 var target_basis = Basis.IDENTITY
 
 func _physics_process(delta):
+	if frozen:
+		set_collision_layer_bit(3, false)
+		set_collision_mask_bit(3, false)
+		
+		if frozen_target != null:
+			var offset = (frozen_target - global_transform.origin)
+			global_transform.origin += offset * GS.lpfa(0.1) * delta
+		
+		if is_picked_up:
+			is_picked_up = false
+			GS.picked_up_object = null
+			GS.picked_up_timer = 0.4
+			ignore_dash_area_timer = 0.25
+		return
+	
+	set_collision_mask_bit(3, not is_picked_up)
+	#set_collision_mask_bit(4, not is_picked_up)
+	set_collision_layer_bit(3, not is_picked_up)
 	
 	if do_rotate:
 		var vel = velocity
@@ -62,9 +95,11 @@ func _physics_process(delta):
 		compute_release_velocity()
 
 	if is_picked_up:
+		
 		if Input.is_action_just_pressed("fish_dash"):
 			is_picked_up = false
 			GS.picked_up_object = null
+			GS.picked_up_timer = 0.4
 			ignore_dash_area_timer = 0.25
 			flag_compute_release_velocity = true
 			

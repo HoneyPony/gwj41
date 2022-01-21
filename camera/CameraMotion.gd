@@ -60,7 +60,7 @@ func _physics_process(delta):
 		
 	sprocket_timer = max(sprocket_timer - delta, -1.0)
 	if sprocket_timer >= 0:
-		lerp_strength = 0.03
+		lerp_strength = lerp(lerp_strength, 0.03, sprocket_timer / 0.8)
 	
 	transform.origin += offset * GS.lpfa(lerp_strength) * delta
 	

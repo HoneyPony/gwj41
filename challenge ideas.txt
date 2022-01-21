@@ -2,7 +2,7 @@ S Idea: Geode breaking
 
 You have to throw rocks in the air so that they intersect with a laser properly.
 
-S Idea: Gem sorting?
+IS Idea: Gem sorting?
 
 You have to get the right gems.
 

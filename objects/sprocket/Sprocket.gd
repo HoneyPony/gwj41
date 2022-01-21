@@ -11,6 +11,8 @@ export var is_disabled = false
 
 export var fish_lerp: float = 0.0 
 
+export var delete_parent = false
+
 func _ready():
 	if is_disabled:
 		hide()
@@ -42,6 +44,10 @@ func notif_sprocket_end(sprocket):
 	if sprocket == self:
 		$AnimationPlayer.play("SprocketCollect")
 		
+func collect():
+	if delete_parent:
+		get_parent().queue_free()
+	queue_free()
 	
 func on_spawn():
 	GS.camera_pivot.notif_sprocket(self)
