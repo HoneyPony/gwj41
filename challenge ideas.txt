@@ -34,9 +34,17 @@ ISE Thing: High nook
 
 The high nook in the left.
 
-S Idea: Race
+IS Idea: Race
 
 You have to move around a race track within a certain period of time.
+
+IS Idea: Hard race
+
+You have to move around the race track even faster.
+
+IS Idea: Weight deliver
+
+You have to deliver the weight to the clam.
 
 Idea: Crate delivery
 

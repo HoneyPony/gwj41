@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://env/gem_wall/Button.material" type="Material" id=1]
 [ext_resource path="res://env/gem_wall/Metal.material" type="Material" id=2]
@@ -52,6 +52,22 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "TurnOff"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("GemButton/Circle:material/1:emission_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.6, 0.0 ]
+}
+
 [sub_resource type="Animation" id=5]
 resource_name = "TurnOn"
 length = 0.6
@@ -99,4 +115,5 @@ shape = SubResource( 3 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "RESET"
 anims/RESET = SubResource( 4 )
+anims/TurnOff = SubResource( 6 )
 anims/TurnOn = SubResource( 5 )
