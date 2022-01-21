@@ -203,8 +203,7 @@ func process_geysers(delta):
 		
 
 func _physics_process(delta):
-	if GS.lock_fish_sprocket_count > 0:
-		return
+
 	
 	
 	var should_go_towards_target = true
@@ -230,7 +229,8 @@ func _physics_process(delta):
 		#print(target_position)
 	process_pivot_rotation(delta)
 
-	process_movement(delta, should_go_towards_target)
+	if GS.lock_fish_sprocket_count <= 0:
+		process_movement(delta, should_go_towards_target)
 	
 	process_geysers(delta)
 	

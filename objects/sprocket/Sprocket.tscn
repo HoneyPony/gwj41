@@ -87,18 +87,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, -1.01728, 0 ) ]
 }
-tracks/4/type = "value"
-tracks/4/path = NodePath(".:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
 
 [sub_resource type="Animation" id=5]
 resource_name = "SprocketCollect"
@@ -212,7 +200,6 @@ tracks/4/keys = {
 }
 
 [node name="Sprocket" type="Spatial" groups=["SprocketNotif"]]
-visible = false
 script = ExtResource( 3 )
 
 [node name="Pivot" type="Spatial" parent="."]

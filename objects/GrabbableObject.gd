@@ -34,16 +34,37 @@ func check_dash_area(delta):
 		ignore_dash_area_timer -= delta
 		return
 		
-	if GS.picked_up_object != null:
-		return
+	
 		
 	if GS.picked_up_timer > 0.0:
 		return
 	
+	
+	
 	var bods = $DashArea.get_overlapping_bodies()
 	if not bods.empty():
+		if GS.picked_up_object != null:
+			if GS.picked_up_lock > 0.03:
+				return
+			
+			var my_vec = global_transform.origin - GS.mouse_position
+			var their_vec = GS.picked_up_object.global_transform.origin - GS.mouse_position
+			
+			if my_vec.length_squared() < their_vec.length_squared():
+				GS.picked_up_object.depickup()
+				GS.picked_up_timer = -1
+			else:
+				return
+				
 		is_picked_up = true
 		GS.picked_up_object = self
+		GS.picked_up_lock = 0
+
+func depickup():
+	is_picked_up = false
+	GS.picked_up_object = null
+	GS.picked_up_timer = 0.4
+	ignore_dash_area_timer = 0.25
 
 func compute_release_velocity():
 	velocity = Vector3.ZERO
@@ -65,10 +86,7 @@ func _physics_process(delta):
 			global_transform.origin += offset * GS.lpfa(0.1) * delta
 		
 		if is_picked_up:
-			is_picked_up = false
-			GS.picked_up_object = null
-			GS.picked_up_timer = 0.4
-			ignore_dash_area_timer = 0.25
+			depickup()
 		return
 	
 	set_collision_mask_bit(3, not is_picked_up)

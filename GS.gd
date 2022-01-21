@@ -7,8 +7,11 @@ var camera_pivot = null
 
 var picked_up_object = null
 var picked_up_timer = -1.0
+var picked_up_lock = 1.0
 
 var lock_fish_sprocket_count = 0
+
+var mouse_position = Vector3.ZERO
 
 func lpfa(a):
 	return a * 60.0
@@ -23,6 +26,7 @@ var fish_avg = Vector3.ZERO
 
 func _physics_process(delta):
 	picked_up_timer = max(-1.0, picked_up_timer - delta)
+	picked_up_lock = min(1.0, picked_up_lock + delta)
 	
 	fish_avg = Vector3.ZERO
 	

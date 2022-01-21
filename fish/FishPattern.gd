@@ -42,6 +42,7 @@ func _physics_process(delta):
 
 	
 	if target_position != null:
+		GS.mouse_position = target_position
 #		var geyser_col = find_mouse_geyser()
 #		if geyser_col != null:
 #			var g = geyser_col.get_parent()

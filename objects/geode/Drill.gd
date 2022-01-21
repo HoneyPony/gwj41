@@ -7,7 +7,7 @@ func process_geode(item, delta):
 	#print("process gedoe")
 	var rt = item.rot_target
 	var s = rt.scale.x
-	s -= delta * 0.3
+	s -= delta * 0.7
 	
 	if s <= 0.3 and not item.frozen:
 		item.get_node("AnimationPlayer").play("Break")
@@ -30,7 +30,7 @@ func process_geode(item, delta):
 
 func _physics_process(delta):
 	drill.rotate_y(TAU * 2 * delta)
-	gear.rotate_y(TAU * 2 * delta)
+	gear.rotate_y(TAU * 1 * delta)
 
 	var drill_items = $DrillArr.get_overlapping_bodies()
 	for item in drill_items:
