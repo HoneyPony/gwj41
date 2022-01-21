@@ -191,7 +191,7 @@ func process_geysers(delta):
 	
 	var geysers = $GeyserDetect.get_overlapping_bodies()
 	for geyser in geysers:
-		var dir = geyser.transform.basis.y
+		var dir = geyser.global_transform.basis.y
 		
 		dir.z = 0.0
 		

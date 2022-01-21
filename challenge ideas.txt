@@ -1,3 +1,7 @@
+Key: S = sand exists
+     I = fully implemented
+     E = pretty easy to implement / low effort
+
 IS Idea: Geode breaking
 
 You have to throw rocks in the air so that they intersect with a laser properly.
@@ -6,13 +10,7 @@ IS Idea: Gem sorting?
 
 You have to get the right gems.
 
-Idea: Item juggling
-
-There is some sort of wall that you can only dash through;
-You have to dash through and then immediately dash to the right in order to bring an
-item with you through a couple walls.
-
-S Idea: Basketball
+IS Idea: Basketball
 
 You have to throw a basketball through a wall and land it on a somewhat specific spot.
 
@@ -20,17 +18,35 @@ IS Idea: Fish Split
 
 You have to have some of the fish go in two different directions.
 
-Idea: Crate delivery
+IS Idea: Through the weeds
 
-You have to deliver the crate to somebody.
+You have to go through a bunch of Dash Weeds.
+
+IS Thing: Behind the Geyser
+
+Hidden behind the geyser.
+
+ISE Thing: Follow those geysers
+
+In the middle of the ocean; follow the geysers
+
+ISE Thing: High nook
+
+The high nook in the left.
 
 S Idea: Race
 
 You have to move around a race track within a certain period of time.
 
-IS Idea: Through the weeds
+Idea: Crate delivery
 
-You have to go through a bunch of Dash Weeds.
+You have to deliver the crate to somebody.
+
+Idea: Item juggling
+
+There is some sort of wall that you can only dash through;
+You have to dash through and then immediately dash to the right in order to bring an
+item with you through a couple walls.
 
 
 "Fishy Gym" or something has the race & basketball challenges
