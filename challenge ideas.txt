@@ -1,4 +1,4 @@
-S Idea: Geode breaking
+IS Idea: Geode breaking
 
 You have to throw rocks in the air so that they intersect with a laser properly.
 
