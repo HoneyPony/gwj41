@@ -22,6 +22,7 @@ onready var time = $Control/Time
 onready var race_clam = get_node("../RaceClam")
 
 export(NodePath) onready var sprocket = GS.nodefp(self, sprocket)
+onready var sprocket2 = $Sprocket2
 
 var current_check = 0
 
@@ -69,10 +70,14 @@ func begin_race():
 	update_timer()
 	
 func end_race():
+	var time_limit = 35.0
+	if race_clam.has_won_once:
+		time_limit = 30.0
+	
 	is_racing = false
 	$AnimationPlayer.play("Open")
 	
-	race_clam.race_done(race_timer <= 35.0)
+	race_clam.race_done(race_timer <= time_limit)
 #
 
 #	if race_timer <= 30.0:

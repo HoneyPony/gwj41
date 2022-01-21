@@ -2,7 +2,7 @@
 
 [ext_resource path="res://objects/gems/3d/GreenGem.material" type="Material" id=1]
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id=12]
 resource_name = "GemWall_Cube"
 surfaces/0 = {
 "aabb": AABB( -1, -1, -1, 20, 2, 2 ),
@@ -16,7 +16,7 @@ surfaces/0 = {
 "vertex_count": 880
 }
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=13]
 extents = Vector3( 8.00036, 2.61093, 22.1662 )
 
 [sub_resource type="Animation" id=3]
@@ -63,7 +63,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 [node name="Cube" type="MeshInstance" parent="Move/GemWall"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 material_override = ExtResource( 1 )
-mesh = SubResource( 1 )
+mesh = SubResource( 12 )
 material/0 = null
 
 [node name="GemWall2" type="Spatial" parent="Move"]
@@ -72,7 +72,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.77137, 0 )
 [node name="Cube" type="MeshInstance" parent="Move/GemWall2"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 material_override = ExtResource( 1 )
-mesh = SubResource( 1 )
+mesh = SubResource( 12 )
 material/0 = null
 
 [node name="GemWall3" type="Spatial" parent="Move"]
@@ -81,12 +81,12 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.53592, 0 )
 [node name="Cube" type="MeshInstance" parent="Move/GemWall3"]
 transform = Transform( 0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0 )
 material_override = ExtResource( 1 )
-mesh = SubResource( 1 )
+mesh = SubResource( 12 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Move"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17784, 1.78595, 0 )
-shape = SubResource( 2 )
+shape = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Open = SubResource( 3 )

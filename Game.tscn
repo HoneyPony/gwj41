@@ -107,60 +107,60 @@ shape = SubResource( 4 )
 environment = ExtResource( 4 )
 
 [node name="Fish0" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_pattern = NodePath("../FishPattern")
 
 [node name="Fish1" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_color = Color( 1, 0.305882, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 1
 
 [node name="Fish2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_color = Color( 1, 0.937255, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 2
 
 [node name="Fish3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_color = Color( 1, 0.352941, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 3
 
 [node name="Fish4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_color = Color( 1, 0.74902, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 4
 
 [node name="Fish5" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 5
 
 [node name="Fish6" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 6
 
 [node name="Fish7" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 7
 
 [node name="Fish8" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 8
 
 [node name="Fish9" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 9
 
 [node name="Fish10" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7737, -17.4573, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.64469, 9.12517, 0 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 10
 
