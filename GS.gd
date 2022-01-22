@@ -15,6 +15,8 @@ class Dialog:
 	
 	var c = null
 	
+	var sound = null
+	
 	func _init(title_, text_, button_0_ = "Next", button_1_ = null):
 		title = title_
 		text = text_
@@ -33,6 +35,10 @@ class Dialog:
 		
 	func cam(c_):
 		c = c_
+		return self
+		
+	func sfx(sound_):
+		sound = sound_
 		return self
 		
 

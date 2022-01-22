@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MiscSFX.gd" type="Script" id=1]
 [ext_resource path="res://MSFXRng.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://sfx/pickup/pickdown.wav" type="AudioStream" id=4]
 [ext_resource path="res://sfx/sprocket/collect.wav" type="AudioStream" id=5]
 [ext_resource path="res://sfx/ui/button.wav" type="AudioStream" id=6]
+[ext_resource path="res://reaper/red_talk.wav" type="AudioStream" id=7]
+[ext_resource path="res://reaper/yellow_talk.wav" type="AudioStream" id=8]
+[ext_resource path="res://reaper/blue_talk.wav" type="AudioStream" id=9]
 
 [node name="MiscSFX" type="Node"]
 script = ExtResource( 1 )
@@ -29,5 +32,20 @@ script = ExtResource( 2 )
 
 [node name="UIButton" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="RedTalk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="BlueTalk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="YellowTalk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 bus = "SFXNonSpatial"
 script = ExtResource( 2 )

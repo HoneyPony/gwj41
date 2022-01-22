@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/red_talk.wav-9d0f8ea24c2cfd21fcb5e38a0045d4b6.sample"
+
+[deps]
+
+source_file="res://reaper/red_talk.wav"
+dest_files=[ "res://.import/red_talk.wav-9d0f8ea24c2cfd21fcb5e38a0045d4b6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

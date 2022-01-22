@@ -34,6 +34,9 @@ func open_dialog(obj):
 	
 	if obj.c != null:
 		obj.c.set_current(true)
+		
+	if obj.sound != null:
+		obj.sound.play_sfx()
 	
 var t_timer = 0.0
 var t_index = 0
@@ -48,9 +51,14 @@ func _process(delta):
 			$Text.text += current_dialog.text[t_index]
 			t_index += 1
 			t_timer = 0.01 # 1 frame... lol
+			
+			if t_index >= current_dialog.text.length():
+				if current_dialog.sound != null:
+					current_dialog.sound.fade(0.2)
 		else:
 			t_timer -= delta
 	else:
+		
 		if current_dialog.button_1 != null:
 			$LButton.show()
 			$RButton.show()

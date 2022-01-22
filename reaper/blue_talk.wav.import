@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blue_talk.wav-a1882a314168c63a2336e8792305318c.sample"
+
+[deps]
+
+source_file="res://reaper/blue_talk.wav"
+dest_files=[ "res://.import/blue_talk.wav-a1882a314168c63a2336e8792305318c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

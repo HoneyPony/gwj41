@@ -35,11 +35,11 @@ func _ready():
 	var d3 = GS.Dialog.new("Captain Redfin", "Let's do that then... and keep an eye out for sprockets!")
 	
 	dialog = GS.Dialog.new("Captain Redfin", "Yarrrrgghhh... It seems we have crashed our beloved ship...")
-	#dialog.cam(red_cam).on_0(d0, funcref(self, "show_sprockets"))
-	d0.cam(blu_cam).on_0(d1)
-	d1.cam(red_cam).on_0(d2)
-	d2.cam(yel_cam).on_0(d3)
-	dialog.cam(red_cam).on_0(null, funcref(self, "dialog_done"))
+	dialog.cam(red_cam).on_0(d0, funcref(self, "show_sprockets")).sfx(SFX.red_talk)
+	d0.cam(blu_cam).on_0(d1).sfx(SFX.blue_talk)
+	d1.cam(red_cam).on_0(d2).sfx(SFX.red_talk)
+	d2.cam(yel_cam).on_0(d3).sfx(SFX.yellow_talk)
+	d3.cam(red_cam).on_0(null, funcref(self, "dialog_done")).sfx(SFX.red_talk)
 	
 	dialog_dash = GS.Dialog.new("Yellowtail the Quick", "Captain, all these bubbles reminds me...")
 	var dd0 = GS.Dialog.new("Captain Redfin", "Reminds you of what?")
@@ -49,39 +49,39 @@ func _ready():
 	var dd4 = GS.Dialog.new("Blue the Engineer", "Yeah, like, we can dash into sprockets to collect them!")
 	var dd5 = GS.Dialog.new("Captain Redfin", "Very well... let's get dashing.")
 	
-	dialog_dash.cam(yel_cam).on_0(dd0)
-	dd0.cam(red_cam).on_0(dd1)
-	dd1.cam(yel_cam).on_0(dd2)
-	dd2.cam(red_cam).on_0(dd3)
-	dd3.cam(yel_cam).on_0(dd4)
-	dd4.cam(blu_cam).on_0(dd5)
-	dd5.cam(red_cam)
+	dialog_dash.cam(yel_cam).on_0(dd0).sfx(SFX.yellow_talk)
+	dd0.cam(red_cam).on_0(dd1).sfx(SFX.red_talk)
+	dd1.cam(yel_cam).on_0(dd2).sfx(SFX.yellow_talk)
+	dd2.cam(red_cam).on_0(dd3).sfx(SFX.red_talk)
+	dd3.cam(yel_cam).on_0(dd4).sfx(SFX.yellow_talk)
+	dd4.cam(blu_cam).on_0(dd5).sfx(SFX.blue_talk)
+	dd5.cam(red_cam).sfx(SFX.red_talk)
 	
 	dialog_s1 = GS.Dialog.new("Blue the Engineer", "Alright, that's one sprocket down, 7 to go!!")
-	dialog_s1.cam(blu_cam)
+	dialog_s1.cam(blu_cam).sfx(SFX.blue_talk)
 	
 	dialog_s8 = GS.Dialog.new("Blue the Engineer", "We have 8 sprockets now! We can head back to the ship and fix it!")
 	var ds8_0 = GS.Dialog.new("Yellowtail the Quick", "Or we can keep looking for sprockets, just for fun!!")
 	var ds8_1 = GS.Dialog.new("Blue the Engineer", "True, a couple spares wouldn't hurt. It's your call captain...")
-	dialog_s8.cam(blu_cam).on_0(ds8_0)
-	ds8_0.cam(yel_cam).on_0(ds8_1)
-	ds8_1.cam(blu_cam)
+	dialog_s8.cam(blu_cam).on_0(ds8_0).sfx(SFX.blue_talk)
+	ds8_0.cam(yel_cam).on_0(ds8_1).sfx(SFX.yellow_talk)
+	ds8_1.cam(blu_cam).sfx(SFX.blue_talk)
 	
 	dialog_s12 = GS.Dialog.new("Blue the Engineer", "Wow captain, I'm pretty sure that's the last sprocket we can find out here.")
 	var ds12_0 = GS.Dialog.new("Yellowtail the Quick", "Yeah, might as well head back to the ship, probably...")
-	dialog_s12.cam(blu_cam).on_0(ds12_0)
-	ds12_0.cam(yel_cam)
+	dialog_s12.cam(blu_cam).on_0(ds12_0).sfx(SFX.blue_talk)
+	ds12_0.cam(yel_cam).sfx(SFX.yellow_talk)
 	
 	dialog_ship = GS.Dialog.new("Blue the Engineer", "Alright everyone, we have enough sprockets to fix our ship!")
 	var dship0 = GS.Dialog.new("Captain Redfin", "So... should we fix up our ship and leave?", "Yeah, let's leave!", "No, let's keep exploring")
 	var dship1 = GS.Dialog.new("Captain Redfin", "We're sure we should leave?", "Absolutely!", "Actually, maybe not...")
 	
-	dialog_ship.cam(blu_cam).on_0(dship0)
-	dship0.cam(red_cam).on_0(dship1)
-	dship1.cam(red_cam).on_0(null, funcref(self, "leave"))
+	dialog_ship.cam(blu_cam).on_0(dship0).sfx(SFX.blue_talk)
+	dship0.cam(red_cam).on_0(dship1).sfx(SFX.red_talk)
+	dship1.cam(red_cam).on_0(null, funcref(self, "leave")).sfx(SFX.red_talk)
 	
 	dialog_ship_12 = GS.Dialog.new("Blue the Engineer", "Alright everyone, we have as many sprockets as we can possibly get!")
-	dialog_ship_12.cam(blu_cam).on_0(dship0)
+	dialog_ship_12.cam(blu_cam).on_0(dship0).sfx(SFX.blue_talk)
 	
 var done_s1 = false
 var done_s8 = false
