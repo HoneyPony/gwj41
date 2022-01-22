@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://fish/Fish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://camera/OceanCamera.gd" type="Script" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://FPS.gd" type="Script" id=10]
 [ext_resource path="res://DialogUI.gd" type="Script" id=11]
 [ext_resource path="res://InitDialog.gd" type="Script" id=12]
+[ext_resource path="res://objects/sprocket/SprocketIcon.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/SprocketList.gd" type="Script" id=14]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 84.5582, 74.9645, 0.254787 )
@@ -245,6 +247,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 9 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -302,6 +305,7 @@ anchor_bottom = 1.0
 theme = ExtResource( 8 )
 script = ExtResource( 11 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -392,6 +396,95 @@ text = "No"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SprocketList" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 8 )
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="T" type="HBoxContainer" parent="SprocketList"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -470.0
+margin_top = 22.0
+margin_right = -22.0
+margin_bottom = 22.0
+custom_constants/separation = 38
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprocket" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 182.0
+margin_right = 182.0
+
+[node name="Sprocket2" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 220.0
+margin_right = 220.0
+
+[node name="Sprocket3" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 258.0
+margin_right = 258.0
+
+[node name="Sprocket4" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 296.0
+margin_right = 296.0
+
+[node name="Sprocket5" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 334.0
+margin_right = 334.0
+
+[node name="Sprocket6" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 372.0
+margin_right = 372.0
+
+[node name="Sprocket7" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 410.0
+margin_right = 410.0
+
+[node name="Sprocket8" parent="SprocketList/T" instance=ExtResource( 13 )]
+margin_left = 448.0
+margin_right = 448.0
+
+[node name="B" type="HBoxContainer" parent="SprocketList"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -470.0
+margin_top = 62.0
+margin_right = -22.0
+margin_bottom = 112.0
+custom_constants/separation = 38
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprocket" parent="SprocketList/B" instance=ExtResource( 13 )]
+margin_left = 334.0
+margin_right = 334.0
+margin_bottom = 50.0
+
+[node name="Sprocket2" parent="SprocketList/B" instance=ExtResource( 13 )]
+margin_left = 372.0
+margin_right = 372.0
+margin_bottom = 50.0
+
+[node name="Sprocket3" parent="SprocketList/B" instance=ExtResource( 13 )]
+margin_left = 410.0
+margin_right = 410.0
+margin_bottom = 50.0
+
+[node name="Sprocket4" parent="SprocketList/B" instance=ExtResource( 13 )]
+margin_left = 448.0
+margin_right = 448.0
+margin_bottom = 50.0
 
 [connection signal="pressed" from="DialogUI/LButton" to="DialogUI" method="_on_B0"]
 [connection signal="pressed" from="DialogUI/CButton" to="DialogUI" method="_on_B0"]

@@ -11,12 +11,18 @@ config_version=4
 [application]
 
 config/name="GWJ41"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://MainMenu.tscn"
+boot_splash/image="res://boot_splash.png"
+boot_splash/bg_color=Color( 0.121569, 0.196078, 0.968627, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
 GS="*res://GS.gd"
+
+[display]
+
+window/size/fullscreen=true
 
 [importer_defaults]
 

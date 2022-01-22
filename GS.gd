@@ -60,6 +60,8 @@ var lock_fish_sprocket_count = 0
 
 var mouse_position = Vector3.ZERO
 
+var collected_sprocket_count = 0
+
 func lpfa(a):
 	return a * 60.0
 	
