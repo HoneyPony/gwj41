@@ -20,7 +20,12 @@ var dialog_s1
 var dialog_s8
 var dialog_s12
 
+var dialog_ship
+var dialog_ship_12
+
 func _ready():
+	GS.fish_dialog = self
+	
 	var d0 = GS.Dialog.new("Blue the Engineer", "Captain, I believe we need to find 8 sprockets to fix it up.")
 	
 	var d1 = GS.Dialog.new("Captain Redfin", "A mighty fine plan... what do we do first?")
@@ -67,6 +72,15 @@ func _ready():
 	dialog_s12.cam(blu_cam).on_0(ds12_0)
 	ds12_0.cam(yel_cam)
 	
+	dialog_ship = GS.Dialog.new("Blue the Engineer", "Alright everyone, we have enough sprockets to fix our ship!")
+	var dship0 = GS.Dialog.new("Captain Redfin", "So... should we fix up our ship and leave?", "Yeah, let's leave!", "No, let's keep exploring")
+	
+	dialog_ship.cam(blu_cam).on_0(dship0)
+	dship0.cam(red_cam).on_0(null, funcref(self, "leave"))
+	
+	dialog_ship_12 = GS.Dialog.new("Blue the Engineer", "Alright everyone, we have as many sprockets as we can possibly get!")
+	dialog_ship_12.cam(blu_cam).on_0(dship0)
+	
 var done_s1 = false
 var done_s8 = false
 var done_s12 = false
@@ -76,6 +90,9 @@ func show_sprockets():
 
 func dialog_done():
 	get_node("../../FishPattern").track_mouse = true
+	
+func leave():
+	pass
 
 func start_dialog():
 	red_cam.set_current(true)
@@ -107,3 +124,5 @@ func _process(delta):
 		done_s12 = true
 		GS.open_dialog(dialog_s12)
 	
+func ship():
+	GS.open_dialog(dialog_ship)

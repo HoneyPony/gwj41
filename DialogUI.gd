@@ -7,6 +7,10 @@ func _ready():
 	hide()
 	
 func open_dialog(obj):
+	if current_dialog != null:
+		# I'm going to hope this check doesn't break anything...
+		return
+	
 	if obj == null:
 		return
 	

@@ -39,6 +39,8 @@ class Dialog:
 var camera
 var fish_set = []
 
+var fish_dialog
+
 var dialog_ui = null
 
 func dialog_is_open():
