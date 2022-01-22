@@ -17,15 +17,15 @@ func _ready():
 	var d3 = GS.Dialog.new("Tutorializer Tam", "Then you can dash again to throw it!", "Neato!")
 	var d2 = GS.Dialog.new("Tutorializer Tam", "You can dash into that green gem to my right to pick it up...", "Then what?")
 	
-	d4.on_0(null, no)
-	d3.on_0(d4)
-	d2.on_0(d3)
+	d4.on_0(null, no).sfx(SFX.clam_talk)
+	d3.on_0(d4).sfx(SFX.clam_talk)
+	d2.on_0(d3).sfx(SFX.clam_talk)
 	
 	var d1 = GS.Dialog.new("Tutorializer Tam", "Up above there's a green gate that you really should open...", "How do I do that?")
-	d1.on_0(d2)
+	d1.on_0(d2).sfx(SFX.clam_talk)
 	
 	dialog = GS.Dialog.new("Tutorializer Tam", "Hello fishes!!!!", "Hello...")
-	dialog.on_0(d1)
+	dialog.on_0(d1).sfx(SFX.clam_talk)
 	
 #func callback_yes():
 #	is_talking = false

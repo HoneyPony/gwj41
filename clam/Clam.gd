@@ -24,36 +24,36 @@ func _ready():
 	var yes = funcref(self, "callback_yes")
 	
 	var d2 = GS.Dialog.new("Speedy Sam", "You will have to complete 3 laps in 35 seconds.", "Let's go!", "Actually, nevermind...")
-	d2.on_0(null, yes)
+	d2.on_0(null, yes).sfx(SFX.clam_talk)
 	d2.on_1(null, no)
 	
 	dialog = GS.Dialog.new("Speedy Sam", "You there! Are you up for a race around the track?", "Yes", "No")
-	dialog.on_0(d2)
+	dialog.on_0(d2).sfx(SFX.clam_talk)
 	dialog.on_1(null, no)
 	
 	var dh2 = GS.Dialog.new("Speedy Sam", "You will have to complete 3 laps in only 30 seconds!", "Let's go!", "Actually, nevermind...")
-	dh2.on_0(null, yes)
+	dh2.on_0(null, yes).sfx(SFX.clam_talk)
 	dh2.on_1(null, no)
 	
 	dialog_hard_race = GS.Dialog.new("Speedy Sam", "You there! You've won one race, but can you win another?", "Maybe...", "Nah")
-	dialog_hard_race.on_0(dh2)
+	dialog_hard_race.on_0(dh2).sfx(SFX.clam_talk)
 	dialog_hard_race.on_1(null, no)
 	
 	dialog_last_race = GS.Dialog.new("Speedy Sam", "You've beaten all the races I can offer. But you can always go again anyways...", "Let's go!", "Maybe later...")
-	dialog_last_race.on_0(null, yes)
+	dialog_last_race.on_0(null, yes).sfx(SFX.clam_talk)
 	dialog_last_race.on_1(null, no)
 	
 	dialog_won = GS.Dialog.new("Speedy Sam", "Wow! Nice job there! Here, take this sprocket I have as a trophy!", "Hooray!")
-	dialog_won.on_0(null, funcref(self, "callback_won"))
+	dialog_won.on_0(null, funcref(self, "callback_won")).sfx(SFX.clam_talk)
 	
 	dialog_won_h = GS.Dialog.new("Speedy Sam", "Wow! Incredible job there! Here, take a second sprocket!", "Hooray!")
-	dialog_won_h.on_0(null, funcref(self, "callback_won"))
+	dialog_won_h.on_0(null, funcref(self, "callback_won")).sfx(SFX.clam_talk)
 	
 	dialog_lost = GS.Dialog.new("Speedy Sam", "Sorry, not quite within 35 seconds there. But, you can always try again!", "OK...")
-	dialog_lost.on_0(null, no)
+	dialog_lost.on_0(null, no).sfx(SFX.clam_talk)
 	
 	dialog_lost_h = GS.Dialog.new("Speedy Sam", "Darn, not quite within 30 seconds. You can always try again!", "OK...")
-	dialog_lost_h.on_0(null, no)
+	dialog_lost_h.on_0(null, no).sfx(SFX.clam_talk)
 	
 func callback_yes():
 	is_talking = false

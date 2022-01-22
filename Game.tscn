@@ -252,7 +252,7 @@ fish_color = Color( 0.72549, 0.101961, 0, 1 )
 fish_pattern = NodePath("../FishPattern")
 
 [node name="Camera" type="Camera" parent="Fish0"]
-transform = Transform( 0.999637, 0, 0.0269271, -0.00350304, 0.991502, 0.130046, -0.0266983, -0.130094, 0.991142, 0.0349865, 0.250786, 1.68148 )
+transform = Transform( 0.999637, -1.81542e-08, 0.0269271, -0.00350304, 0.991502, 0.130047, -0.0266983, -0.130094, 0.991142, 0.0349865, 0.870193, 5.9333 )
 
 [node name="Dialog" type="Spatial" parent="Fish0"]
 script = ExtResource( 12 )
@@ -275,7 +275,7 @@ fish_pattern = NodePath("../FishPattern")
 fish_number = 2
 
 [node name="Camera" type="Camera" parent="Fish2"]
-transform = Transform( 0.999637, 0, 0.0269271, -0.00350304, 0.991502, 0.130046, -0.0266983, -0.130094, 0.991142, 0.0349865, 0.250786, 1.68148 )
+transform = Transform( 0.999637, -1.81542e-08, 0.0269271, -0.00350304, 0.991502, 0.130047, -0.0266983, -0.130094, 0.991142, 0.0349865, 0.870193, 5.9333 )
 
 [node name="Fish3" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0941, -126.692, 0 )
@@ -300,8 +300,11 @@ fish_color = Color( 0, 0.486275, 1, 1 )
 fish_pattern = NodePath("../FishPattern")
 fish_number = 6
 
-[node name="Camera" type="Camera" parent="Fish6"]
+[node name="CameraOLD" type="Camera" parent="Fish6"]
 transform = Transform( 0.999637, 0, 0.0269271, -0.00350304, 0.991502, 0.130046, -0.0266983, -0.130094, 0.991142, 0.0349865, 0.250786, 1.68148 )
+
+[node name="Camera" type="Camera" parent="Fish6"]
+transform = Transform( 0.999637, -1.81542e-08, 0.0269271, -0.00350304, 0.991502, 0.130047, -0.0266983, -0.130094, 0.991142, 0.0349865, 0.870193, 5.9333 )
 
 [node name="Fish7" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0941, -126.692, 0 )

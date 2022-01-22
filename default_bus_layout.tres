@@ -1,16 +1,9 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 resource_name = "Limiter"
 ceiling_db = -2.0
 threshold_db = -4.0
-
-[sub_resource type="AudioEffectCompressor" id=2]
-resource_name = "Compressor"
-threshold = -13.1
-ratio = 1.1
-gain = 1.0
-attack_us = 200.0
 
 [resource]
 bus/0/effect/0/effect = SubResource( 1 )
@@ -39,5 +32,3 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = -9.42178
 bus/4/send = "UserMaster"
-bus/4/effect/0/effect = SubResource( 2 )
-bus/4/effect/0/enabled = false

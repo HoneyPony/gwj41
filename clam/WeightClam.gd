@@ -17,13 +17,13 @@ func _ready():
 	var yes = funcref(self, "callback_yes")
 	
 	dialog = GS.Dialog.new("Powerlifter Pam", "Yo! Have you seen any weights lying around? I lost one of mine...", "I'll keep an eye out")
-	dialog.on_0(null, no)
+	dialog.on_0(null, no).sfx(SFX.clam_talk)
 	
 	dialog_post = GS.Dialog.new("Powerlifter Pam", "Yo! I heard shooting 3 hoops at the gym might score you another sprocket!", "Nice")
-	dialog_post.on_0(null, no)
+	dialog_post.on_0(null, no).sfx(SFX.clam_talk)
 	
 	dialog_thanks = GS.Dialog.new("Powerlifter Pam", "Yo! Thanks for finding my missing weight! Here, have this sprocket...", "Neato!")
-	dialog_thanks.on_0(null, funcref(self, "callback_sprocket"))
+	dialog_thanks.on_0(null, funcref(self, "callback_sprocket")).sfx(SFX.clam_talk)
 	
 func callback_yes():
 	is_talking = false

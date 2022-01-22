@@ -4,7 +4,7 @@ X Gem pickup
 X Gem drop
 - Gear spawn
 X Gear collect
-- Fish voices
+X Fish voices
 - Clam voice
 - Race end sound
 - Button activate?
