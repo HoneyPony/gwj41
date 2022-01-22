@@ -3,7 +3,7 @@ X Bubbles (dashing, geyser / wall)
 X Gem pickup
 X Gem drop
 - Gear spawn
-- Gear collect
+X Gear collect
 - Fish voices
 - Clam voice
 - Race end sound
