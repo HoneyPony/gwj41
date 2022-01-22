@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/245934__sophiehall3535__spinning-machine.wav-2b68aae63a54ec43e0cc7251ff186171.sample"
+
+[deps]
+
+source_file="res://sfx/freesound/245934__sophiehall3535__spinning-machine.wav"
+dest_files=[ "res://.import/245934__sophiehall3535__spinning-machine.wav-2b68aae63a54ec43e0cc7251ff186171.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

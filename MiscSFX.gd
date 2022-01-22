@@ -12,3 +12,7 @@ onready var clam_talk = $ClamTalk
 
 onready var sprocket_fanfare = $SprocketFanfare
 onready var sprocket_upfare = $SprocketUpfare
+
+onready var gem_upfare = $GemUpfare
+
+onready var rock_break = $RockBreak

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rock_break.wav-72a3b5d165cc84afe8763fd7e8dffd3a.sample"
+
+[deps]
+
+source_file="res://sfx/drill/rock_break.wav"
+dest_files=[ "res://.import/rock_break.wav-72a3b5d165cc84afe8763fd7e8dffd3a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

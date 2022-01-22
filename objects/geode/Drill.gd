@@ -18,6 +18,7 @@ func process_geode(item, delta):
 		var contents = item.get_node_or_null("Contents")
 		if contents != null:
 			contents.activate()
+			SFX.gem_upfare.play_usual()
 		
 		#print("Froze the geode")
 		return
@@ -36,3 +37,6 @@ func _physics_process(delta):
 	for item in drill_items:
 		if item.is_in_group("Geode"):
 			process_geode(item, delta)
+			
+#		if not SFX.rock_break.playing:
+#			SFX.rock_break.play_sfx()

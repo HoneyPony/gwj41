@@ -9,4 +9,10 @@ X Clam voice
 - Race end sound
 - Button activate?
 - Wall open?
-- Drilling thing
+X Drilling thing
+- Drill rock break
+
+TODO:
+- Implement volume controls
+- Do music
+- Finish SFX
