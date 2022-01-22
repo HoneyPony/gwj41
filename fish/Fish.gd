@@ -45,6 +45,8 @@ func find_target_position():
 	
 var target_rotation: Basis
 
+onready var dash_fx = $DashFX
+
 # This function computes the current acceleration based on the desired velocity.
 # In particular, it will never accelerate faster than the desired velocity, so the
 # acceleration * delta vector is properly clamped so as to not over-accelerate.
@@ -259,6 +261,8 @@ func _physics_process(delta):
 				dash_part_spawn.add_child(dp)
 				
 				dash_timer = 0.4
+				if dash_fx != null:
+					dash_fx.play_sfx()
 	dash_shape.disabled = dash_timer <= 0.2
 	dash_timer = max(dash_timer - delta, -1)
 	

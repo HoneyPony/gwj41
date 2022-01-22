@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://fish/Fish.tscn" type="PackedScene" id=1]
 [ext_resource path="res://camera/OceanCamera.gd" type="Script" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://ui/Volume.tscn" type="PackedScene" id=15]
 [ext_resource path="res://ui/PauseMenu.gd" type="Script" id=16]
 [ext_resource path="res://FadeOutToWin.gd" type="Script" id=17]
+[ext_resource path="res://sfx/dash/dash.wav" type="AudioStream" id=18]
+[ext_resource path="res://MSFXRng.gd" type="Script" id=19]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 84.5582, 74.9645, 0.254787 )
@@ -254,6 +256,11 @@ transform = Transform( 0.999637, 0, 0.0269271, -0.00350304, 0.991502, 0.130046, 
 
 [node name="Dialog" type="Spatial" parent="Fish0"]
 script = ExtResource( 12 )
+
+[node name="DashFX" type="AudioStreamPlayer" parent="Fish0"]
+stream = ExtResource( 18 )
+bus = "SFX"
+script = ExtResource( 19 )
 
 [node name="Fish1" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0941, -126.692, 0 )

@@ -1,5 +1,5 @@
 Sound FX list:
-- Bubbles (dashing, geyser / wall)
+X Bubbles (dashing, geyser / wall)
 - Gem pickup
 - Gem drop
 - Gear spawn

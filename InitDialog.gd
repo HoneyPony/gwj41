@@ -35,11 +35,11 @@ func _ready():
 	var d3 = GS.Dialog.new("Captain Redfin", "Let's do that then... and keep an eye out for sprockets!")
 	
 	dialog = GS.Dialog.new("Captain Redfin", "Yarrrrgghhh... It seems we have crashed our beloved ship...")
-	dialog.cam(red_cam).on_0(d0, funcref(self, "show_sprockets"))
+	#dialog.cam(red_cam).on_0(d0, funcref(self, "show_sprockets"))
 	d0.cam(blu_cam).on_0(d1)
 	d1.cam(red_cam).on_0(d2)
 	d2.cam(yel_cam).on_0(d3)
-	d3.cam(red_cam).on_0(null, funcref(self, "dialog_done"))
+	dialog.cam(red_cam).on_0(null, funcref(self, "dialog_done"))
 	
 	dialog_dash = GS.Dialog.new("Yellowtail the Quick", "Captain, all these bubbles reminds me...")
 	var dd0 = GS.Dialog.new("Captain Redfin", "Reminds you of what?")
