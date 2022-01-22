@@ -259,7 +259,7 @@ script = ExtResource( 12 )
 
 [node name="DashFX" type="AudioStreamPlayer" parent="Fish0"]
 stream = ExtResource( 18 )
-bus = "SFX"
+bus = "SFXNonSpatial"
 script = ExtResource( 19 )
 
 [node name="Fish1" parent="." instance=ExtResource( 1 )]

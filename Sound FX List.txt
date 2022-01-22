@@ -1,7 +1,7 @@
 Sound FX list:
 X Bubbles (dashing, geyser / wall)
-- Gem pickup
-- Gem drop
+X Gem pickup
+X Gem drop
 - Gear spawn
 - Gear collect
 - Fish voices
