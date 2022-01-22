@@ -27,6 +27,8 @@ func check_collection():
 		
 		for node in get_tree().get_nodes_in_group("SprocketNotif"):
 			node.notif_sprocket(self)
+			
+		SFX.sprocket_fanfare.play_usual()
 
 func _physics_process(delta):
 	if not is_disabled:

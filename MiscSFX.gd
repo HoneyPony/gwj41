@@ -9,3 +9,5 @@ onready var red_talk = $RedTalk
 onready var blue_talk = $BlueTalk
 onready var yellow_talk = $YellowTalk
 onready var clam_talk = $ClamTalk
+
+onready var sprocket_fanfare = $SprocketFanfare

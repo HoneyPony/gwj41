@@ -25,7 +25,7 @@ func play_sfx():
 	volume_db = start_db + rand_range(-0.05, 0.05)
 	pitch_scale = start_pitch * rand_range(0.93, 1.07)
 	
-	print("Playing ", name ," at ", volume_db)
+	#print("Playing ", name ," at ", volume_db)
 	play()
 
 func fade(time: float):
