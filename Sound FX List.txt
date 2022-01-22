@@ -10,7 +10,7 @@ X Clam voice
 - Button activate?
 - Wall open?
 X Drilling thing
-- Drill rock break
+X Drill rock break
 
 TODO:
 - Implement volume controls
