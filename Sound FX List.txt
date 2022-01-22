@@ -2,10 +2,10 @@ Sound FX list:
 X Bubbles (dashing, geyser / wall)
 X Gem pickup
 X Gem drop
-- Gear spawn
+X Gear spawn
 X Gear collect
 X Fish voices
-- Clam voice
+X Clam voice
 - Race end sound
 - Button activate?
 - Wall open?

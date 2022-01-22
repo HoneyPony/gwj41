@@ -59,6 +59,8 @@ func on_spawn():
 	GS.camera_pivot.notif_sprocket(self)
 	GS.lock_fish_sprocket_count += 1
 	
+	SFX.sprocket_upfare.play_usual()
+	
 func on_spawn_end():
 	is_disabled = false
 	GS.camera_pivot.notif_sprocket_end(self)

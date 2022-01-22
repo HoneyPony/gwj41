@@ -11,3 +11,4 @@ onready var yellow_talk = $YellowTalk
 onready var clam_talk = $ClamTalk
 
 onready var sprocket_fanfare = $SprocketFanfare
+onready var sprocket_upfare = $SprocketUpfare

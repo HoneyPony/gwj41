@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://MiscSFX.gd" type="Script" id=1]
 [ext_resource path="res://MSFXRng.gd" type="Script" id=2]
 [ext_resource path="res://sfx/pickup/pickup.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/pickup/pickdown.wav" type="AudioStream" id=4]
-[ext_resource path="res://sfx/sprocket/collect.wav" type="AudioStream" id=5]
+[ext_resource path="res://reaper/sprocket_collect.wav" type="AudioStream" id=5]
 [ext_resource path="res://sfx/ui/button.wav" type="AudioStream" id=6]
 [ext_resource path="res://reaper/red_talk.wav" type="AudioStream" id=7]
 [ext_resource path="res://reaper/yellow_talk.wav" type="AudioStream" id=8]
 [ext_resource path="res://reaper/blue_talk.wav" type="AudioStream" id=9]
 [ext_resource path="res://reaper/clam_talk.wav" type="AudioStream" id=10]
 [ext_resource path="res://reaper/sprocket_fanfare.wav" type="AudioStream" id=11]
+[ext_resource path="res://reaper/sprocket_upfare.wav" type="AudioStream" id=12]
 
 [node name="MiscSFX" type="Node"]
 script = ExtResource( 1 )
@@ -60,6 +61,12 @@ script = ExtResource( 2 )
 
 [node name="SprocketFanfare" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -2.0
+bus = "SFXNSLouder"
+script = ExtResource( 2 )
+
+[node name="SprocketUpfare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 volume_db = -2.0
 bus = "SFXNSLouder"
 script = ExtResource( 2 )
