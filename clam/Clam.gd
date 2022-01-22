@@ -107,6 +107,9 @@ func begin_talking():
 	GS.open_dialog(d)
 
 func _physics_process(delta):
+	if not is_talking:
+		$AnimationPlayer.play("Normal")
+	
 	if race.is_racing:
 		return
 	

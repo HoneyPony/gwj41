@@ -17,6 +17,7 @@ func _ready():
 	var d3 = GS.Dialog.new("Tutorializer Tam", "Then you can dash again to throw it!", "Neato!")
 	var d2 = GS.Dialog.new("Tutorializer Tam", "You can dash into that green gem to my right to pick it up...", "Then what?")
 	
+	d4.on_0(null, no)
 	d3.on_0(d4)
 	d2.on_0(d3)
 	
@@ -30,9 +31,9 @@ func _ready():
 #	is_talking = false
 #	pass
 #
-#func callback_no():
-#	is_talking = false
-#	pass
+func callback_no():
+	is_talking = false
+	pass
 #
 #func callback_sprocket():
 #	is_talking = false
