@@ -12,6 +12,8 @@ onready var blu_cam = get_node("../../Fish6/Camera")
 
 onready var tut_y = get_node("../../Level/TutorialY")
 
+onready var sprocket_list = get_node("../../SprocketList")
+
 var dialog_dash
 
 var dialog_s1
@@ -28,7 +30,7 @@ func _ready():
 	var d3 = GS.Dialog.new("Captain Redfin", "Let's do that then... and keep an eye out for sprockets!")
 	
 	dialog = GS.Dialog.new("Captain Redfin", "Yarrrrgghhh... It seems we have crashed our beloved ship...")
-	dialog.cam(red_cam).on_0(d0)
+	dialog.cam(red_cam).on_0(d0, funcref(self, "show_sprockets"))
 	d0.cam(blu_cam).on_0(d1)
 	d1.cam(red_cam).on_0(d2)
 	d2.cam(yel_cam).on_0(d3)
@@ -69,6 +71,9 @@ var done_s1 = false
 var done_s8 = false
 var done_s12 = false
 
+func show_sprockets():
+	sprocket_list.get_node("AnimationPlayer").play("ShowUp")
+
 func dialog_done():
 	get_node("../../FishPattern").track_mouse = true
 
@@ -87,6 +92,7 @@ func _process(delta):
 	if tut_needed:
 		if global_transform.origin.y > tut_y.global_transform.origin.y:
 			GS.open_dialog(dialog_dash)
+			
 			tut_needed = false
 	
 	if not done_s1 and GS.collected_sprocket_count >= 1:
