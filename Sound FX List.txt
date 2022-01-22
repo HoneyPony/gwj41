@@ -13,6 +13,7 @@ X Drilling thing
 X Drill rock break
 
 TODO:
-- Implement volume controls
+X Implement volume controls
 - Do music
 - Finish SFX
+- Add plants
