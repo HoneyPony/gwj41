@@ -1,0 +1,12 @@
+Sound FX list:
+- Bubbles (dashing, geyser / wall)
+- Gem pickup
+- Gem drop
+- Gear spawn
+- Gear collect
+- Fish voices
+- Clam voice
+- Race end sound
+- Button activate?
+- Wall open?
+- Drilling thing

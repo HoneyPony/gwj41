@@ -63,6 +63,13 @@ var lock_fish_sprocket_count = 0
 var mouse_position = Vector3.ZERO
 
 var collected_sprocket_count = 0
+var needed_sprockets = 8
+var max_sprockets = 12
+
+var mins = 0
+var min_timer = 60.0
+
+var fade_out_obj = null
 
 func lpfa(a):
 	return a * 60.0
@@ -75,7 +82,23 @@ func nodefp(src, path):
 
 var fish_avg = Vector3.ZERO
 
+var is_in_game = false
+
 func _physics_process(delta):
+	
+	
+	if not is_in_game:
+		return
+	
+	if get_tree().paused:
+		# Just so it's obvious what behavior this will have...
+		return
+		
+	min_timer -= delta
+	if min_timer <= 0.0:
+		min_timer = 60.0
+		mins += 1
+	
 	picked_up_timer = max(-1.0, picked_up_timer - delta)
 	picked_up_lock = min(1.0, picked_up_lock + delta)
 	

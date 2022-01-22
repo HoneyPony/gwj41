@@ -9,6 +9,7 @@ onready var fish_pattern = get_node("../FishPattern")
 var sprocket_timer = -1.0
 
 func _ready():
+	GS.is_in_game = true
 	GS.camera_pivot = self
 	
 	var fish_root = get_parent()

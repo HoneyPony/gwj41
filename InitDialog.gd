@@ -74,9 +74,11 @@ func _ready():
 	
 	dialog_ship = GS.Dialog.new("Blue the Engineer", "Alright everyone, we have enough sprockets to fix our ship!")
 	var dship0 = GS.Dialog.new("Captain Redfin", "So... should we fix up our ship and leave?", "Yeah, let's leave!", "No, let's keep exploring")
+	var dship1 = GS.Dialog.new("Captain Redfin", "We're sure we should leave?", "Absolutely!", "Actually, maybe not...")
 	
 	dialog_ship.cam(blu_cam).on_0(dship0)
-	dship0.cam(red_cam).on_0(null, funcref(self, "leave"))
+	dship0.cam(red_cam).on_0(dship1)
+	dship1.cam(red_cam).on_0(null, funcref(self, "leave"))
 	
 	dialog_ship_12 = GS.Dialog.new("Blue the Engineer", "Alright everyone, we have as many sprockets as we can possibly get!")
 	dialog_ship_12.cam(blu_cam).on_0(dship0)
@@ -92,7 +94,7 @@ func dialog_done():
 	get_node("../../FishPattern").track_mouse = true
 	
 func leave():
-	pass
+	GS.fade_out_obj.get_node("AnimationPlayer").play("FadeOut")
 
 func start_dialog():
 	red_cam.set_current(true)
@@ -116,13 +118,16 @@ func _process(delta):
 		done_s1 = true
 		GS.open_dialog(dialog_s1)
 		
-	if not done_s8 and GS.collected_sprocket_count >= 8:
+	if not done_s8 and GS.collected_sprocket_count >= GS.needed_sprockets:
 		done_s8 = true
 		GS.open_dialog(dialog_s8)
 
-	if not done_s12 and GS.collected_sprocket_count >= 12:
+	if not done_s12 and GS.collected_sprocket_count >= GS.max_sprockets:
 		done_s12 = true
 		GS.open_dialog(dialog_s12)
 	
 func ship():
+	var d = dialog_ship
+	if GS.collected_sprocket_count >= GS.max_sprockets:
+		d = dialog_ship_12
 	GS.open_dialog(dialog_ship)
