@@ -34,6 +34,7 @@ func _physics_process(delta):
 		if weeds_left > 1 and not bods.empty():
 			cooldown = 0.4
 			was_hit()
+			SFX.plant_break.play_sfx()
 			
 		
 	else:

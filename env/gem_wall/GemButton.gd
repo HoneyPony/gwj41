@@ -15,6 +15,8 @@ func make_pressed():
 	is_pressed = true
 	$AnimationPlayer.play("TurnOn")
 	
+	SFX.button_on.play()
+	
 	if target_door is Node:
 		target_door.get_node("AnimationPlayer").play("Open")
 
@@ -34,6 +36,7 @@ func _physics_process(delta):
 		if is_pressed:
 			is_pressed = false
 			$AnimationPlayer.play("TurnOff")
+			SFX.button_off.play()
 			
 			if target_door is Node:
 				target_door.get_node("AnimationPlayer").play("Close")

@@ -142,6 +142,6 @@ anims/RESET = SubResource( 4 )
 [node name="Open" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.738, 1.665, 44 )
 stream = ExtResource( 3 )
-unit_db = 8.0
+unit_db = 2.0
 bus = "SFX"
 script = ExtResource( 2 )

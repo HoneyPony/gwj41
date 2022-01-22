@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MiscSFX.gd" type="Script" id=1]
 [ext_resource path="res://MSFXRng.gd" type="Script" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://reaper/sprocket_upfare.wav" type="AudioStream" id=12]
 [ext_resource path="res://sfx/drill/rock_break.wav" type="AudioStream" id=13]
 [ext_resource path="res://reaper/gem_upfare.wav" type="AudioStream" id=14]
+[ext_resource path="res://reaper/button_on.wav" type="AudioStream" id=15]
+[ext_resource path="res://reaper/button_off.wav" type="AudioStream" id=16]
+[ext_resource path="res://sfx/plant/break.wav" type="AudioStream" id=17]
 
 [node name="MiscSFX" type="Node"]
 script = ExtResource( 1 )
@@ -81,5 +84,20 @@ script = ExtResource( 2 )
 
 [node name="RockBreak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="ButtonOn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="ButtonOff" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="PlantBreak" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
 bus = "SFXNonSpatial"
 script = ExtResource( 2 )

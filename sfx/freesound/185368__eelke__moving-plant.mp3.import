@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/185368__eelke__moving-plant.mp3-a44d9f395cbb8a79257a7125c7750672.mp3str"
+
+[deps]
+
+source_file="res://sfx/freesound/185368__eelke__moving-plant.mp3"
+dest_files=[ "res://.import/185368__eelke__moving-plant.mp3-a44d9f395cbb8a79257a7125c7750672.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

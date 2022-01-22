@@ -16,3 +16,8 @@ onready var sprocket_upfare = $SprocketUpfare
 onready var gem_upfare = $GemUpfare
 
 onready var rock_break = $RockBreak
+
+onready var button_on = $ButtonOn
+onready var button_off = $ButtonOff
+
+onready var plant_break = $PlantBreak
