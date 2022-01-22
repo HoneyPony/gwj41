@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://MiscSFX.gd" type="Script" id=1]
 [ext_resource path="res://MSFXRng.gd" type="Script" id=2]
 [ext_resource path="res://sfx/pickup/pickup.wav" type="AudioStream" id=3]
 [ext_resource path="res://sfx/pickup/pickdown.wav" type="AudioStream" id=4]
+[ext_resource path="res://sfx/sprocket/collect.wav" type="AudioStream" id=5]
+[ext_resource path="res://sfx/ui/button.wav" type="AudioStream" id=6]
 
 [node name="MiscSFX" type="Node"]
 script = ExtResource( 1 )
@@ -17,5 +19,15 @@ script = ExtResource( 2 )
 [node name="GemPickdown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -3.0
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="SprocketCollect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="UIButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 bus = "SFXNonSpatial"
 script = ExtResource( 2 )

@@ -43,9 +43,11 @@ func notif_sprocket(sprocket):
 func notif_sprocket_end(sprocket):
 	if sprocket == self:
 		$AnimationPlayer.play("SprocketCollect")
+		SFX.sprocket_collect.play_sfx()
 		
 func collect():
 	GS.collected_sprocket_count += 1
+	
 	
 	if delete_parent:
 		get_parent().queue_free()

@@ -59,6 +59,8 @@ func _process(delta):
 
 
 func _on_B0():
+	SFX.ui_button.play_sfx()
+	
 	if current_dialog == null:
 		return
 	var f = current_dialog.f0
@@ -71,6 +73,8 @@ func _on_B0():
 
 
 func _on_B1():
+	SFX.ui_button.play_sfx()
+	
 	if current_dialog == null:
 		return
 	var f = current_dialog.f1
