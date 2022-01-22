@@ -42,7 +42,7 @@ func _physics_process(delta):
 	if weeds_left > 1 or cooldown > 0.0:
 		for bod in bods:
 			var fish = bod.get_parent()
-			var offset = fish.transform.origin - center_obj.global_transform.origin
+			var offset = fish.global_transform.origin - center_obj.global_transform.origin
 			offset.z = 0
 			fish.velocity = fish.velocity.length() * offset.normalized()
 		
