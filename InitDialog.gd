@@ -35,7 +35,7 @@ func _ready():
 	var dd1 = GS.Dialog.new("Yellowtail the Quick", "Well, if we click the left mouse button, we can dash around!")
 	var dd2 = GS.Dialog.new("Captain Redfin", "And how does that help us?")
 	var dd3 = GS.Dialog.new("Yellowtail the Quick", "It'll let us get through walls of bubbles, and interact with other stuff as well!")
-	var dd4 = GS.Dialog.new("Blue the Engineer", "We can also dash into sprockets to collect them!")
+	var dd4 = GS.Dialog.new("Blue the Engineer", "Yeah, like, we can dash into sprockets to collect them!")
 	var dd5 = GS.Dialog.new("Captain Redfin", "Very well... let's get dashing.")
 	
 	dialog_dash.cam(yel_cam).on_0(dd0)
