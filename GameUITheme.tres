@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=11 format=2]
 
 [ext_resource path="res://font/montserrat/Montserrat-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/GrabberIcon.svg" type="Texture" id=2]
+[ext_resource path="res://ui/GrabberIconHigh.svg" type="Texture" id=3]
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
@@ -37,6 +39,14 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 1, 1, 1 )
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="DynamicFont" id=5]
 size = 28
 font_data = ExtResource( 1 )
@@ -47,3 +57,8 @@ Button/styles/focus = SubResource( 6 )
 Button/styles/hover = SubResource( 7 )
 Button/styles/normal = SubResource( 8 )
 Button/styles/pressed = SubResource( 9 )
+HSlider/icons/grabber = ExtResource( 2 )
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource( 3 )
+HSlider/styles/grabber_area = SubResource( 10 )
+HSlider/styles/slider = SubResource( 11 )

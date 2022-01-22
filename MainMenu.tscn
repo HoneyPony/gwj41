@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://env/geyser/GeyserBubble.tres" type="ArrayMesh" id=1]
 [ext_resource path="res://GameUITheme.tres" type="Theme" id=2]
 [ext_resource path="res://font/montserrat/Montserrat-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://ui/Volume.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0.315315 ), 0.0, 5.87739, 0, 0, Vector2( 0.084449, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.771459, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.35856, 0.0, 0, 0 ]
@@ -87,6 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -99,7 +101,7 @@ margin_right = 99.5
 margin_bottom = 333.0
 text = "Play Game"
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="Quit" type="Button" parent="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -99.0
@@ -107,6 +109,9 @@ margin_top = 345.0
 margin_right = 100.0
 margin_bottom = 401.0
 text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Control"]
 anchor_left = 0.5
@@ -140,6 +145,14 @@ custom_fonts/font = SubResource( 2 )
 text = "Many Missing Sprockets"
 align = 1
 
+[node name="Volume" parent="Control" instance=ExtResource( 5 )]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -210.0
+margin_top = 428.0
+margin_right = -170.0
+margin_bottom = 468.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
@@ -148,6 +161,7 @@ anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -156,3 +170,4 @@ anims/FadeOut = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
 [connection signal="pressed" from="Control/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_Quit_pressed"]

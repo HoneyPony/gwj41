@@ -8,3 +8,7 @@ func change_scene():
 func _on_Play_pressed():
 	$CanvasLayer/AnimationPlayer.play("FadeOut")
 
+
+
+func _on_Quit_pressed():
+	get_tree().quit()
