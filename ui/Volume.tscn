@@ -15,6 +15,9 @@ margin_top = 2.0
 margin_right = 215.0
 margin_bottom = 38.0
 text = "Master Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="MVS" type="HSlider" parent="."]
 margin_left = 225.0

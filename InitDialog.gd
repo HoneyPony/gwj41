@@ -14,6 +14,10 @@ onready var tut_y = get_node("../../Level/TutorialY")
 
 var dialog_dash
 
+var dialog_s1
+var dialog_s8
+var dialog_s12
+
 func _ready():
 	var d0 = GS.Dialog.new("Blue the Engineer", "Captain, I believe we need to find 8 sprockets to fix it up.")
 	
@@ -46,6 +50,24 @@ func _ready():
 	dd4.cam(blu_cam).on_0(dd5)
 	dd5.cam(red_cam)
 	
+	dialog_s1 = GS.Dialog.new("Blue the Engineer", "Alright, that's one sprocket down, 7 to go!!")
+	dialog_s1.cam(blu_cam)
+	
+	dialog_s8 = GS.Dialog.new("Blue the Engineer", "We have 8 sprockets now! We can head back to the ship and fix it!")
+	var ds8_0 = GS.Dialog.new("Yellowtail the Quick", "Or we can keep looking for sprockets, just for fun!!")
+	var ds8_1 = GS.Dialog.new("Blue the Engineer", "True, a couple spares wouldn't hurt. It's your call captain...")
+	dialog_s8.cam(blu_cam).on_0(ds8_0)
+	ds8_0.cam(yel_cam).on_0(ds8_1)
+	ds8_1.cam(blu_cam)
+	
+	dialog_s12 = GS.Dialog.new("Blue the Engineer", "Wow captain, I'm pretty sure that's the last sprocket we can find out here.")
+	var ds12_0 = GS.Dialog.new("Yellowtail the Quick", "Yeah, might as well head back to the ship, probably...")
+	dialog_s12.cam(blu_cam).on_0(ds12_0)
+	ds12_0.cam(yel_cam)
+	
+var done_s1 = false
+var done_s8 = false
+var done_s12 = false
 
 func dialog_done():
 	get_node("../../FishPattern").track_mouse = true
@@ -66,3 +88,16 @@ func _process(delta):
 		if global_transform.origin.y > tut_y.global_transform.origin.y:
 			GS.open_dialog(dialog_dash)
 			tut_needed = false
+	
+	if not done_s1 and GS.collected_sprocket_count >= 1:
+		done_s1 = true
+		GS.open_dialog(dialog_s1)
+		
+	if not done_s8 and GS.collected_sprocket_count >= 8:
+		done_s8 = true
+		GS.open_dialog(dialog_s8)
+
+	if not done_s12 and GS.collected_sprocket_count >= 12:
+		done_s12 = true
+		GS.open_dialog(dialog_s12)
+	
