@@ -56,6 +56,8 @@ func check_dash_area(delta):
 			else:
 				return
 				
+		if GS.picked_up_object == null:
+			SFX.gem_pickup.play_sfx()
 		is_picked_up = true
 		GS.picked_up_object = self
 		GS.picked_up_lock = 0
@@ -127,6 +129,8 @@ func _physics_process(delta):
 				GS.picked_up_timer = 0.4
 				ignore_dash_area_timer = 0.25
 				flag_compute_release_velocity = true
+				
+				SFX.gem_pickdown.play_sfx()
 			
 		var target_position = Vector3.ZERO
 		for fish in GS.fish_set:

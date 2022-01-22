@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/173932__johnsonbrandediting__ding-ding-small-bell.wav-b39f4959bdc341cb87af017d73cfd0b9.sample"
+
+[deps]
+
+source_file="res://sfx/freesound/173932__johnsonbrandediting__ding-ding-small-bell.wav"
+dest_files=[ "res://.import/173932__johnsonbrandediting__ding-ding-small-bell.wav-b39f4959bdc341cb87af017d73cfd0b9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

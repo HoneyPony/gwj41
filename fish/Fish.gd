@@ -45,7 +45,7 @@ func find_target_position():
 	
 var target_rotation: Basis
 
-onready var dash_fx = $DashFX
+onready var dash_fx = get_node_or_null("DashFX")
 
 # This function computes the current acceleration based on the desired velocity.
 # In particular, it will never accelerate faster than the desired velocity, so the

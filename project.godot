@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 [autoload]
 
 GS="*res://GS.gd"
+SFX="*res://MiscSFX.tscn"
 
 [display]
 
