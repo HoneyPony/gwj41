@@ -62,7 +62,7 @@ func _ready():
 	
 	dialog_s8 = GS.Dialog.new("Blue the Engineer", "We have 8 sprockets now! We can head back to the ship and fix it!")
 	var ds8_0 = GS.Dialog.new("Yellowtail the Quick", "Or we can keep looking for sprockets, just for fun!!")
-	var ds8_1 = GS.Dialog.new("Blue the Engineer", "True, a couple spares wouldn't hurt. It's your call captain...")
+	var ds8_1 = GS.Dialog.new("Blue the Engineer", "True, a couple spares wouldn't hurt. It's your call Captain...")
 	dialog_s8.cam(blu_cam).on_0(ds8_0).sfx(SFX.blue_talk)
 	ds8_0.cam(yel_cam).on_0(ds8_1).sfx(SFX.yellow_talk)
 	ds8_1.cam(blu_cam).sfx(SFX.blue_talk)

@@ -27,6 +27,9 @@ func _ready():
 	dialog = GS.Dialog.new("Tutorializer Tam", "Hello fishes!!!!", "Hello...")
 	dialog.on_0(d1).sfx(SFX.clam_talk)
 	
+	dialog_post = GS.Dialog.new("Tutorializer Tam", "Hello fishes!!!! I heard if you want to find something shiny, you should\nfollow the geysers way on the right of town!!!!", "Hmmm....")
+	dialog_post.on_0(null, no).sfx(SFX.clam_talk)
+	
 #func callback_yes():
 #	is_talking = false
 #	pass
@@ -52,6 +55,16 @@ func begin_talking():
 	camera.set_current(true)
 
 	GS.open_dialog(dialog)
+	
+func begin_talking_2():
+	if is_talking:
+		return
+		
+	is_talking = true
+	$AnimationPlayer.play("Talk")
+	camera.set_current(true)
+
+	GS.open_dialog(dialog_post)
 
 func _physics_process(delta):
 	if not is_talking:
@@ -61,3 +74,7 @@ func _physics_process(delta):
 		var obj = get_overlapping_bodies()
 		if not obj.empty():
 			begin_talking()
+	else:
+		var obj = $Dash.get_overlapping_bodies()
+		if not obj.empty():
+			begin_talking_2()
