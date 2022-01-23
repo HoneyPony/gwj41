@@ -12,6 +12,8 @@ func _ready():
 	GS.is_in_game = true
 	GS.camera_pivot = self
 	
+	SFX.music.play()
+	
 	var fish_root = get_parent()
 	for i in range(0, 10 + 1):
 		var fish = fish_root.get_node("Fish" + String(i))

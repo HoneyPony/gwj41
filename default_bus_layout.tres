@@ -1,9 +1,24 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=2]
+[gd_resource type="AudioBusLayout" load_steps=5 format=2]
 
 [sub_resource type="AudioEffectLimiter" id=1]
 resource_name = "Limiter"
 ceiling_db = -2.0
 threshold_db = -4.0
+
+[sub_resource type="AudioEffectCompressor" id=4]
+resource_name = "Compressor"
+threshold = -12.6
+ratio = 1.1
+attack_us = 250.0
+sidechain = "SFX"
+
+[sub_resource type="AudioEffectCompressor" id=5]
+resource_name = "Compressor"
+threshold = -36.6
+ratio = 38.4
+attack_us = 30.0
+release_ms = 100.0
+sidechain = "SFXMusic"
 
 [sub_resource type="AudioEffectCompressor" id=3]
 resource_name = "Compressor"
@@ -20,29 +35,45 @@ bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = "Master"
-bus/2/name = "SFX"
+bus/2/name = "Music"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = "UserMaster"
-bus/2/effect/0/effect = SubResource( 3 )
-bus/2/effect/0/enabled = true
-bus/3/name = "Music"
+bus/3/name = "MusicFX"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 0.0
-bus/3/send = "UserMaster"
-bus/4/name = "SFXNonSpatial"
+bus/3/volume_db = -11.4624
+bus/3/send = "Music"
+bus/3/effect/0/effect = SubResource( 4 )
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource( 5 )
+bus/3/effect/1/enabled = true
+bus/4/name = "SFX"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = -9.42178
-bus/4/send = "SFX"
-bus/5/name = "SFXNSLouder"
+bus/4/volume_db = 0.0
+bus/4/send = "UserMaster"
+bus/4/effect/0/effect = SubResource( 3 )
+bus/4/effect/0/enabled = true
+bus/5/name = "SFXNonSpatial"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = -0.030508
+bus/5/volume_db = -9.42178
 bus/5/send = "SFX"
+bus/6/name = "SFXNSLouder"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = -0.030508
+bus/6/send = "SFX"
+bus/7/name = "SFXMusic"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = "SFXNSLouder"

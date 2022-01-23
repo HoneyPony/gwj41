@@ -38,7 +38,7 @@ func open_dialog(obj):
 	if obj.sound != null:
 		obj.sound.play_sfx()
 		
-	_on_B0()
+	#_on_B0()
 	
 var t_timer = 0.0
 var t_index = 0

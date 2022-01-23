@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/race_2.wav-e4b833c18b09b1484f64622573574afe.sample"
+
+[deps]
+
+source_file="res://reaper/race_2.wav"
+dest_files=[ "res://.import/race_2.wav-e4b833c18b09b1484f64622573574afe.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

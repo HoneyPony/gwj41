@@ -13,6 +13,7 @@ func _on_BallDetect_body_exited(body):
 	
 	if body.is_in_group("GemBall"):
 		balls += 1
+		SFX.applause.play_sfx()
 		
 		if balls >= 3:
 			got = true

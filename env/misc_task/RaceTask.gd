@@ -45,6 +45,16 @@ func update_timer():
 	
 	time.text = hours + ":" + minutes + ":" + seconds + "." + fpart
 
+func play_sfx():
+	if lap_num == 1:
+		SFX.race_1.play()
+	if lap_num == 2:
+		SFX.race_2.play()
+	if lap_num == 3:
+		SFX.race_3.play()
+	if lap_num == 4:
+		SFX.race_4.play()
+
 func check_checkpoint():
 	var c = checks[current_check]
 	var bods = c.get_overlapping_bodies()
@@ -57,6 +67,8 @@ func check_checkpoint():
 			
 			if lap_num >= 4:
 				end_race()
+				
+			play_sfx()
 		current_check = (current_check + 1) % checks.size()
 		
 func begin_race():
@@ -68,6 +80,8 @@ func begin_race():
 	lap_num = 1
 	current_check = 0
 	update_timer()
+	
+	play_sfx()
 	
 func end_race():
 	var time_limit = 35.0

@@ -63,7 +63,7 @@ func _physics_process(delta):
 		var items = weight_area.get_overlapping_bodies()
 		for item in items:
 			if item.is_in_group("WeightObj"):
-				has_got = true
+				#has_got = true
 				is_talking = true
 				GS.open_dialog(dialog_thanks)
 	

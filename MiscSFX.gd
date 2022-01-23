@@ -21,3 +21,12 @@ onready var button_on = $ButtonOn
 onready var button_off = $ButtonOff
 
 onready var plant_break = $PlantBreak
+
+onready var race_1 = $Race1
+onready var race_2 = $Race2
+onready var race_3 = $Race3
+onready var race_4 = $Race4
+
+onready var applause = $Applause
+
+onready var music = $Music

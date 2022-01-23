@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://MiscSFX.gd" type="Script" id=1]
 [ext_resource path="res://MSFXRng.gd" type="Script" id=2]
@@ -17,6 +17,12 @@
 [ext_resource path="res://reaper/button_on.wav" type="AudioStream" id=15]
 [ext_resource path="res://reaper/button_off.wav" type="AudioStream" id=16]
 [ext_resource path="res://sfx/plant/break.wav" type="AudioStream" id=17]
+[ext_resource path="res://reaper/race_1.wav" type="AudioStream" id=18]
+[ext_resource path="res://reaper/race_3.wav" type="AudioStream" id=19]
+[ext_resource path="res://reaper/race_2.wav" type="AudioStream" id=20]
+[ext_resource path="res://reaper/race_4.wav" type="AudioStream" id=21]
+[ext_resource path="res://sfx/ball/applause.wav" type="AudioStream" id=22]
+[ext_resource path="res://reaper/music3.ogg" type="AudioStream" id=23]
 
 [node name="MiscSFX" type="Node"]
 script = ExtResource( 1 )
@@ -67,19 +73,19 @@ script = ExtResource( 2 )
 [node name="SprocketFanfare" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -2.0
-bus = "SFXNSLouder"
+bus = "SFXMusic"
 script = ExtResource( 2 )
 
 [node name="SprocketUpfare" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
 volume_db = -2.0
-bus = "SFXNSLouder"
+bus = "SFXMusic"
 script = ExtResource( 2 )
 
 [node name="GemUpfare" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 volume_db = -5.0
-bus = "SFXNSLouder"
+bus = "SFXMusic"
 script = ExtResource( 2 )
 
 [node name="RockBreak" type="AudioStreamPlayer" parent="."]
@@ -101,3 +107,32 @@ script = ExtResource( 2 )
 stream = ExtResource( 17 )
 bus = "SFXNonSpatial"
 script = ExtResource( 2 )
+
+[node name="Race1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="Race2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="Race3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="Race4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="Applause" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 22 )
+bus = "SFXNonSpatial"
+script = ExtResource( 2 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 23 )
+bus = "MusicFX"

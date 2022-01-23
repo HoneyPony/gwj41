@@ -7,10 +7,10 @@ X Gear spawn
 X Gear collect
 X Fish voices
 X Clam voice
-- Race end sound
+X Race end sound
 X Button activate?
-- Wall open?
-- Hoop sound
+eh Wall open?
+X Hoop sound
 X Drilling thing
 X Drill rock break
 
