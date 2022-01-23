@@ -88,6 +88,20 @@ func process_movement(delta, should_go_towards_target):
 #	if distance < velocity.length() and distance < 0.05:
 #		distance = 0
 #		transform.origin = target_position
+	if distance > 20:
+		var close_fish = null
+		for fish in GS.fish_set:
+			var org = fish.transform.origin
+			var tar = fish.target_position
+			
+			if tar != null:
+				var dist = (org - tar).length()
+				if dist < 2:
+					close_fish = fish
+					break
+					
+		if close_fish != null:
+			transform.origin = close_fish.transform.origin
 
 	
 	var input_vector: Vector3 = (target_position - transform.origin)#get_input_vector()

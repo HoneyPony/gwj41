@@ -25,6 +25,7 @@ extents = Vector3( 84.5582, 74.9645, 0.254787 )
 
 [sub_resource type="Animation" id=6]
 resource_name = "FadeIn"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -44,7 +45,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 2.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
